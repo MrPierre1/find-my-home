@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 import React from 'react'
 import './App.css'
-// import image from '../public/assets/1.jpg';
+// import image from './../public/assets/1.jpg';
 import HomepageLayout from './HomePageLayout'
 import {
   Button,
@@ -20,20 +20,47 @@ import {
   Visibility,
   Dropdown,
 } from 'semantic-ui-react'
+import test from './assets/test3.jpg';
 
 function SearchContainer() {
-  const searchStyle = {
-   
-
-  }
-
+ var testing = test
+ const searchStyle = {
+   background: `url(${testing})`,
+   backgroundSize: 'cover',
+  //  backgroundColor:'red'
+  height: '700px', 
+  padding: '140px',
+  // padding: '0 auto'
+  // margin: '0 auto'
+ }
   
   const containerStyle = {
     backgroundColor: '#333',
-    marginTop: '60px',
+    marginTop: '0px',
     borderRadius: '15px',
+    // margin: 'auto auto',
+    // width: '50%',
+    // border: '3px solid green',
+    // padding: '40px',
+    // height: '500px'
+    // margin: '0 auto',
+    
   }
 
+  const searchContainerStyle = {
+   
+    // backgroundBlendMode:'screen',
+    // marginTop: '0px',
+    // borderRadius: '15px',
+    // margin: 'auto';
+    // width: '50%';
+    // border: '3px solid green';
+    // padding: '10px';
+
+    // // height: '500px'
+    // // margin: '0 auto',
+    
+  }
 
   const submitStyle = {
     marginTop: '30px',
@@ -43,6 +70,7 @@ function SearchContainer() {
 
   const headerStyle = {
     color: 'white',
+   paddingTop: '50px'
   }
   const friendOptions = [
     {
@@ -79,16 +107,19 @@ function SearchContainer() {
   ]
 
   return (
-    <div className="" styles={{ backgroundImage:`url(../../../public/assets/1.jpg)` }}>
-      <Container text style={containerStyle}>
-        <div style={headerStyle} class="ui huge header white">
+    <div style={searchStyle}>
+      <Container text style={containerStyle} >
+        
+        <div style={searchContainerStyle} center> 
+        
+        <div style={headerStyle} class="ui huge header ">
           Property Search Just Got Easier
         </div>
         <div class="ui three column grid">
           <div class="row">
             <div class="column">
               <div class="ui focus input">
-                <input type="text" placeholder="Search..." />
+                <input type="text" placeholder="Keywords (Pool, Garage, Etc.)" />
               </div>
             </div>
             <div class="column">
@@ -134,6 +165,7 @@ function SearchContainer() {
         <button style={submitStyle} class="ui fluid button">
           Find My Home
         </button>
+        </div>
       </Container>
     </div>
   )
