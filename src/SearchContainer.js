@@ -25,10 +25,23 @@ function SearchContainer()
  {
 
   const containerStyle = {
-    backgroundColor: 'red',
-    marginTop: '60px'
+    backgroundColor: '#333',
+    marginTop: '60px',
+    borderRadius: '15px'
   }
 
+  const submitStyle = {
+    
+    marginTop: '30px',
+    color: 'white', 
+    backgroundColor: 'green'
+  }
+
+  const headerStyle = {
+  
+    color: 'white', 
+   
+  }
   const friendOptions = [
     {
       key: 'Jenny Hess',
@@ -59,8 +72,9 @@ function SearchContainer()
   
   return (
     <div className="">
+      
        <Container text style={containerStyle}>
-
+       <div style={headerStyle} class="ui huge header white">Property Search Just Got Easier</div>
        <div class="ui three column grid">
 
   <div class="row">
@@ -95,7 +109,33 @@ function SearchContainer()
 
 
 
+<div class="ui two column grid">
+
+<div class="row">
   
+  <div class="column">
+    
+    <Dropdown
+  placeholder='Bedrooms(All)'
+  fluid
+  selection
+  options={friendOptions}
+/>
+    
+    </div>
+  <div class="column">
+  <Dropdown
+  placeholder='Max Price (Any)'
+  fluid
+  selection
+  options={state}
+/>
+    
+    </div>
+</div>
+</div>
+
+<button style = {submitStyle} class="ui fluid button">Find My Home</button>
   </Container>
     </div>
   );
