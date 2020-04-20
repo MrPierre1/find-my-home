@@ -3,6 +3,7 @@ import './App.css';
 import HomepageLayout from './HomePageLayout';
 import Footer from './Footer'
 import SearchContainer from './SearchContainer'
+import Listings from './Listings'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <HomepageLayout>
       <SearchContainer/> 
+      <Listings />
         <Footer/>
       </HomepageLayout>
     </div>

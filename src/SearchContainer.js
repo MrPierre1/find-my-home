@@ -27,40 +27,17 @@ function SearchContainer() {
  const searchStyle = {
    background: `url(${testing})`,
    backgroundSize: 'cover',
-  //  backgroundColor:'red'
-  height: '700px', 
+  height: '550px', 
   padding: '140px',
-  // padding: '0 auto'
-  // margin: '0 auto'
  }
   
   const containerStyle = {
     backgroundColor: '#333',
     marginTop: '0px',
     borderRadius: '15px',
-    // margin: 'auto auto',
-    // width: '50%',
-    // border: '3px solid green',
-    // padding: '40px',
-    // height: '500px'
-    // margin: '0 auto',
     
   }
 
-  const searchContainerStyle = {
-   
-    // backgroundBlendMode:'screen',
-    // marginTop: '0px',
-    // borderRadius: '15px',
-    // margin: 'auto';
-    // width: '50%';
-    // border: '3px solid green';
-    // padding: '10px';
-
-    // // height: '500px'
-    // // margin: '0 auto',
-    
-  }
 
   const submitStyle = {
     marginTop: '30px',
@@ -110,7 +87,7 @@ function SearchContainer() {
     <div style={searchStyle}>
       <Container text style={containerStyle} >
         
-        <div style={searchContainerStyle} center> 
+        <div center> 
         
         <div style={headerStyle} class="ui huge header ">
           Property Search Just Got Easier
