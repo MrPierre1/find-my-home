@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import {
   Button,
   Container,
@@ -24,23 +24,24 @@ const getWidth = () => {
   }
 
 
-class DesktopContainer extends Component {
-    state = {}
+function DesktopContainer  ({children}) {
+    // state = {}
   
-    hideFixedMenu = () => this.setState({ fixed: false })
-    showFixedMenu = () => this.setState({ fixed: true })
-  
-    render() {
-      const { children } = this.props
-      const { fixed } = this.state
+   
+    const [hideFixedMenu, setHideFixedMenu] = useState({ fixed: false })
+  const [showFixedMenu, setShowFixedMenu] = useState({ fixed: true })
+  const fixed = false
+    // render() {
+    //   const { children } = props
+    //   const { fixed } = this.state
   
       return (
         <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-          <Visibility
+          {/* <Visibility
             once={false}
-            onBottomPassed={this.showFixedMenu}
-            onBottomPassedReverse={this.hideFixedMenu}
-          >
+            onBottomPassed={showFixedMenu}
+            onBottomPassedReverse={hideFixedMenu}
+          > */}
             <Segment
               inverted
               textAlign='center'
@@ -51,11 +52,10 @@ class DesktopContainer extends Component {
               {/* <HomepageHeading /> */}
               {/* {children} */}
             </Segment>
-          </Visibility>
+          {/* </Visibility> */}
   
           {children}
         </Responsive>
       )
     }
-  }
   export default DesktopContainer

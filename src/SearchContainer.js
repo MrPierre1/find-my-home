@@ -87,19 +87,19 @@ function SearchContainer() {
     <div style={searchStyle}>
       <Container text style={containerStyle} >
         
-        <div center> 
+        <div > 
         
-        <div style={headerStyle} class="ui huge header ">
+        <div style={headerStyle} className="ui huge header ">
           Property Search Just Got Easier
         </div>
-        <div class="ui three column grid">
-          <div class="row">
-            <div class="column">
-              <div class="ui focus input">
+        <div className="ui three column grid">
+          <div className="row">
+            <div className="column">
+              <div className="ui focus input">
                 <input type="text" placeholder="Keywords (Pool, Garage, Etc.)" />
               </div>
             </div>
-            <div class="column">
+            <div className="column">
               <Dropdown
                 placeholder="City"
                 fluid
@@ -107,7 +107,7 @@ function SearchContainer() {
                 options={friendOptions}
               />
             </div>
-            <div class="column">
+            <div className="column">
               <Dropdown
                 placeholder="State (All)"
                 fluid
@@ -118,9 +118,9 @@ function SearchContainer() {
           </div>
         </div>
 
-        <div class="ui two column grid">
-          <div class="row">
-            <div class="column">
+        <div className="ui two column grid">
+          <div className="row">
+            <div className="column">
               <Dropdown
                 placeholder="Bedrooms(All)"
                 fluid
@@ -128,7 +128,7 @@ function SearchContainer() {
                 options={friendOptions}
               />
             </div>
-            <div class="column">
+            <div className="column">
               <Dropdown
                 placeholder="Max Price (Any)"
                 fluid
@@ -139,7 +139,7 @@ function SearchContainer() {
           </div>
         </div>
 
-        <button style={submitStyle} class="ui fluid button">
+        <button style={submitStyle} className="ui fluid button">
           Find My Home
         </button>
         </div>

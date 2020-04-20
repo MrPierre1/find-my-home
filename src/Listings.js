@@ -19,6 +19,7 @@ import {
   Dropdown,
 } from 'semantic-ui-react'
 import test from './assets/test2.jpg'
+import data from './Raleigh.json'
 
 function App() {
   const extra = (
@@ -35,9 +36,20 @@ function App() {
     color: 'white',
     backgroundColor: 'navy',
   }
+  const headerStyle = {
 
+   paddingTop: '50px'
+  }
+
+console.log('data is here', data)
   return (
     <div className="">
+      
+      <div style={headerStyle} className="ui huge header ">
+          Featured_Listings
+        </div>
+
+
       <Container style={containerStyle}>
         <Card.Group itemsPerRow={4}>
           <Card
@@ -77,7 +89,7 @@ function App() {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-              <button style={submitStyle} class="ui fluid button">
+              <button style={submitStyle} className="ui fluid button">
           Find My Home
         </button>
               </div>

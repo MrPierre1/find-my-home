@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import {
   Button,
   Container,
@@ -16,23 +16,43 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
-const getWidth = () => {
-    const isSSR = typeof window === 'undefined'
+
+function MobileContainer  ({children}) {
+    // state = {}
   
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+    
+    // handleSidebarHide = () => this.setState({ sidebarOpened: false })
+  
+    // handleToggle = () => this.setState({ sidebarOpened: true })
+  
+    // render() {
+      const getWidth = () => {
+        const isSSR = typeof window === 'undefined'
+      
+        return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+      }
+
+    //   const { children } = this.props
+    //   const { sidebarOpened } = this.state
+  
+
+
+    const [hideFixedMenu, setHideFixedMenu] = useState({ fixed: false })
+  const [showFixedMenu, setShowFixedMenu] = useState({ fixed: true })
+  const [sidebarOpened, setsidebarOpened] = useState(false)
+  const fixed = false
+
+  const handleSidebarHide = function(){
+     setsidebarOpened({sidebarOpened: false})
   }
 
-class MobileContainer extends Component {
-    state = {}
-  
-    handleSidebarHide = () => this.setState({ sidebarOpened: false })
-  
-    handleToggle = () => this.setState({ sidebarOpened: true })
-  
-    render() {
-      const { children } = this.props
-      const { sidebarOpened } = this.state
-  
+  const handleToggle = function(){
+    setsidebarOpened({sidebarOpened: true})
+ }
+
+ 
+
+
       return (
         <Responsive
           as={Sidebar.Pushable}
@@ -43,7 +63,7 @@ class MobileContainer extends Component {
             as={Menu}
             animation='push'
             inverted
-            onHide={this.handleSidebarHide}
+            onHide={handleSidebarHide}
             vertical
             visible={sidebarOpened}
           >
@@ -66,7 +86,7 @@ class MobileContainer extends Component {
             >
               <Container>
                 <Menu inverted pointing secondary size='large'>
-                  <Menu.Item onClick={this.handleToggle}>
+                  <Menu.Item onClick={handleToggle}>
                     <Icon name='sidebar' />
                   </Menu.Item>
                   <Menu.Item position='right'>
@@ -79,7 +99,7 @@ class MobileContainer extends Component {
                   </Menu.Item>
                 </Menu>
               </Container>
-              {/* <HomepageHeading mobile /> */}
+          
             </Segment>
   
             {children}
@@ -87,6 +107,6 @@ class MobileContainer extends Component {
         </Responsive>
       )
     }
-  }
+  // }
   
   export default MobileContainer
