@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "faker": "^4.1.0",
     "lodash": "^4.17.15",
+    "pure-react-carousel": "^1.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",

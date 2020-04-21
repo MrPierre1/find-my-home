@@ -20,12 +20,12 @@ import {
 } from 'semantic-ui-react'
 import test from './assets/test2.jpg'
 import data from './Raleigh.json'
- 
+import ImageCarousel from './ImageCarousel'
 import CarouselMain from './CarouselMain'
-import HouseCards from './HouseCards'
+import Listings from './Listings'
 
 
-function Listings() {
+function ListingsContainer() {
   const [showCarousel, setshowCarousel] = useState(false)
   const extra = (
     <a>
@@ -51,11 +51,6 @@ function Listings() {
     setshowCarousel(!showCarousel)
   }
 
-  const Headline = ({ value }) => {
-    
-    return <h1>{value}</h1>;
-  };
-
 // console.log('data is here', data)
   return (
     <div className="">
@@ -64,36 +59,13 @@ function Listings() {
           Featured_Listings
         </div>
 
-
-      <Container style={containerStyle}>
-     { data.map((item, index) => 
-      
-      
-      
-        // <Card.Group itemsPerRow={4} key={item.address.streetAddress}   >
-
-        <Grid>
-    <Grid.Row columns={3} stackable>
-      <Grid.Column>
-       <HouseCards property={item} index={index}/>
-      </Grid.Column>
-      <Grid.Column>
-      <HouseCards property={item} index={index} />
-      </Grid.Column>
-      <Grid.Column>
-      <HouseCards property={item} index={index} />
-      </Grid.Column>
-    </Grid.Row>
-
-    </Grid>
-       
-        // </Card.Group>
-        )
-      }
-      
-      </Container>
+<Listings/>
+<button style={submitStyle} className="ui fluid button" onClick={toggleCarousel}>
+          More Info
+        </button>
+    
     </div>
   )
 }
 
-export default Listings
+export default ListingsContainer
