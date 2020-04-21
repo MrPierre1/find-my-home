@@ -1,4 +1,4 @@
-[{
+const myJsonArray = [{
   "address": {
     "streetAddress": "11803 Wake Bluff Dr",
     "city": "Raleigh",
@@ -395,3 +395,5 @@
   ]
 }
 ]
+
+export default myJsonArray

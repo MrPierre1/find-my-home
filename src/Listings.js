@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css'
+import axios from 'axios'
 
 import {
   Button,
@@ -19,14 +20,18 @@ import {
   Dropdown,
 } from 'semantic-ui-react'
 import test from './assets/test2.jpg'
-import data from './Raleigh.json'
+import myJsonArray from './Raleigh.js'
  
 import CarouselMain from './CarouselMain'
 import HouseCards from './HouseCards'
 
 
 function Listings() {
+
+
+
   const [showCarousel, setshowCarousel] = useState(false)
+  const [jsonData, setJsonData] = useState(myJsonArray)
   const extra = (
     <a>
       <Icon name="user" />
@@ -34,7 +39,8 @@ function Listings() {
     </a>
   )
   const containerStyle = {
-    margin: '30px',
+    margin: '20px',
+    
   }
   const submitStyle = {
     marginTop: '30px',
@@ -46,50 +52,46 @@ function Listings() {
    paddingTop: '50px'
   }
 
-  function toggleCarousel (){
-    console.log('nadia is sleepy, night night nigga', showCarousel)
-    setshowCarousel(!showCarousel)
-  }
+const cardContainerStyle = {
+  marginTop:'50px'
+}
 
-  const Headline = ({ value }) => {
-    
-    return <h1>{value}</h1>;
-  };
-
-// console.log('data is here', data)
   return (
     <div className="">
       
       <div style={headerStyle} className="ui huge header ">
-          Featured_Listings
+          Featured Listings
         </div>
 
-
       <Container style={containerStyle}>
-     { data.map((item, index) => 
+     
       
-      
-      
-        // <Card.Group itemsPerRow={4} key={item.address.streetAddress}   >
+     
+{/*        
+//       <ul style={{display:'inline'}}>
+//         <li style={{display:'inline-flex'}}> */}
 
-        <Grid>
-    <Grid.Row columns={3} stackable>
-      <Grid.Column>
-       <HouseCards property={item} index={index}/>
-      </Grid.Column>
-      <Grid.Column>
-      <HouseCards property={item} index={index} />
-      </Grid.Column>
-      <Grid.Column>
-      <HouseCards property={item} index={index} />
-      </Grid.Column>
-    </Grid.Row>
+<Grid>
+  
 
-    </Grid>
-       
-        // </Card.Group>
-        )
+  <Grid.Row columns={4}>
+  { jsonData.map((item, index) => 
+    <Grid.Column>
+     <HouseCards property={item} index={index} image={'item.photos[0]'}/>
+    </Grid.Column> 
+     )
       }
+  </Grid.Row>
+</Grid>
+
+
+     
+{/* 
+//         </li>
+//       </ul> */}
+
+       
+      
       
       </Container>
     </div>
