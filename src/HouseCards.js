@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './App.css';
+import { HouseContext } from "./context/HouseContext";
+
 
 import {
   Button,
@@ -41,32 +43,38 @@ function HouseCards (props) {
     address,
     bedrooms,
     bathrooms,
-    price,
+    // price,
     photos,
     livingArea,
+    description, 
     yearBuilt,
   } = props.property;
+
+  const {property} = useContext(HouseContext);
+
   return (
-    // <Card.Group itemsPerRow={6} style={{display:'inline-flex'}}>
-    <Card style={{ margin: '30px'}}
-      image={photos[0]}
-      header={price}
-      meta={address.neighborhood}
-      description={`${address.streetAddress}, ${address.city},  ${address.state}`}
+   
+      <div>
+      
+    <Card style={{ margin: '30px', height: '500px'}}
+      image={property.photos[0]}
+      header={property.price}
+      meta={`${property.address.streetAddress} ${property.address.city}  ${property.address.state}`}
+      description={`${property.description.slice(0, 60)}...`}
       extra={
-        <div>
+        <>
           <Grid>
             <Grid.Row columns={2}>
               <Grid.Column>
                 <a>
                   <Icon name="th" />
-                  Sqft: {livingArea}
+                  Sqft: {property.livingArea}
                 </a>
               </Grid.Column>
               <Grid.Column>
                 <a>
                   <Icon name="car" />
-                  Year Built: {yearBuilt}
+                  Year Built: {property.yearBuilt}
                 </a>
               </Grid.Column>
             </Grid.Row>
@@ -74,24 +82,26 @@ function HouseCards (props) {
               <Grid.Column>
                 <a>
                   <Icon name="bed" />
-                  Bedroom: {bedrooms}
+                  Bedroom: {property.bedrooms}
                 </a>
               </Grid.Column>
               <Grid.Column>
                 <a>
                   <Icon name="bath" />
-                  Bathroom: {bathrooms}
+                  Bathroom: {property.bathrooms}
                 </a>
               </Grid.Column>
             </Grid.Row>
           </Grid>
 
           <CarouselMain />
-
-        </div>
+        </>
+        
       }
     />
-    // </Card.Group>
+    
+    </div>
+    
   );
 }
 export default HouseCards;
