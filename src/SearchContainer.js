@@ -1,26 +1,13 @@
-import _ from 'lodash'
 
 import React, {useState, useEffect, useContext} from 'react'
 import './App.css'
 import myJsonArray from './Raleigh.js'
-
-// import image from './../public/assets/1.jpg';
-import HomepageLayout from './HomePageLayout'
 import {
-  Button,
+
   Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
+ 
   Input,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
+ Responsive,
   Dropdown,
 } from 'semantic-ui-react'
 import test from './assets/test3.jpg';
@@ -29,18 +16,6 @@ import { HouseContext } from './context/HouseContext'
 
 function SearchContainer() {
   const [jsonData, setJsonData] = useState(myJsonArray)
-
-  // useEffect(() => {
-  //   jsonData.map(function(data){
-  //     console.log(data.address.city)
-  //     console.log(data.address.state)
-  //     console.log(data.price)
-  //     console.log(data.bedrooms)
-  //   })
-  //   return () => {
-      
-  //   }
-  // }, [])
 
  var testing = test
  const searchStyle = {
@@ -68,26 +43,6 @@ function SearchContainer() {
     color: 'white',
    paddingTop: '50px'
   }
-  const friendOptions = [
-    {
-      key: 'Jenny Hess',
-      text: 'Jenny Hess',
-      value: 'Jenny Hess',
-      image: {
-        avatar: true,
-        src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg',
-      },
-    },
-    {
-      key: 'Elliot Fu',
-      text: 'Elliot Fu',
-      value: 'Elliot Fu',
-      image: {
-        avatar: true,
-        src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg',
-      },
-    },
-  ]
 
   const stateOptions= [
     {
@@ -96,12 +51,11 @@ function SearchContainer() {
       value: 'NC',
     },
     {
-      key: 'California',
-      text: 'California',
-      value: 'California',
+      key: 'CA',
+      text: 'CA',
+      value: 'CA',
     },
   ]
-
 
 
   const cityOptions = [
@@ -111,9 +65,9 @@ function SearchContainer() {
       value: 'Raleigh',
     },
     {
-      key: 'LA',
-      text: 'LA',
-      value: 'LA',
+      key: 'Los Angeles',
+      text: 'Los Angeles',
+      value: 'Los Angeles',
     },
   ]
 
@@ -136,6 +90,11 @@ function SearchContainer() {
       key: '4+',
       text: '4+',
       value: '4+',
+    },
+    {
+      key: '5',
+      text: '5',
+      value: '5',
     },
   ]
 
@@ -170,43 +129,39 @@ const [bedrooms, setbedrooms] = useState('')
 const [state, setState] = useContext(HouseContext)
 
 
-  const handleSubmit = (event, data) => {
-    event.preventDefault ();
-  
-    console.log(city, price, keywords, bedrooms,nationState, 'and it data')
-    // setState(state => ({ ...state, name: 'Clicked!' }))}>
-    //  var queryParams = {city, name, keywords, bedrooms, nationState}
+const handleSubmit = (event) => {
+  const data = state.myJsonArray
+  event.preventDefault ();
+  console.log('city,', city, 'price, ', price, 'keywords,', keywords, 'bed', bedrooms, 'state', nationState, 'and it data', state.myJsonArray)
+  var filter = [ {bedrooms}, {city}, {price}, {nationState}]
+  var result = []
+for (var prop in filter){
+    var filtered = filter[prop]
+        data.find((obj, index) => 
+            {
+                    var myFilter = Object.values(filtered) 
+                    var propertyData = Object.values(obj)
+                if (propertyData.includes(myFilter[0])){
+                    result.push(data[index])
+                }
+            });
+}
+console.log('myresult', result, result.length )
 
-    // data.filter((item) => filterKeys.some(key => item[key]
-    //   .toString().toLowerCase()
-    //   .includes(value.toLowerCase()) && item[key]));
-
-//      console.log('price is price', price, )
-//     setState({
-//       Object.keys(queryParams)
-//      myJsonArray:  state.myJsonArray.filter(filteredData => filteredData.price == queryParams.price)
-//  // myJsonArray: state.myJsonArray.filter(function(item) {
-//       //   return item.price !== 675000;
-//       // }) 
-//     })
+setState( { myJsonArray : result})
+setcity({})
+setprice({})
+setkeywords([])
+setbedrooms({})
+setnationState({})
+     
+ 
   };
 
-  // const handleChange = (event, data) => {
-  //   event.preventDefault ();
-  //   var test = {[data.name]: data.value}
-  //   console.log(test, 'data is here', data.name)
-  //   // if (data.name)
-  //   setcity({city: data.value})
-  //   setprice({price: data.value})
-  //   setbedrooms({bedrooms: data.value})
-  //   setprice({price: data.value})
-  //   setkeywords({keywords: data.value})
-
-
-  // };
-
+ 
 
   return (
+    <Responsive>
     <div style={searchStyle}>
       <form onSubmit={handleSubmit}>
       
@@ -232,6 +187,7 @@ const [state, setState] = useContext(HouseContext)
               onChange={(e, data) => setcity ({city: data.value})}
                 placeholder="City"
                 fluid
+                clearable
                 selection
                 options={cityOptions}
                 
@@ -244,6 +200,7 @@ const [state, setState] = useContext(HouseContext)
                onChange={(e, data) => setnationState ({nationState: data.value})}
                 placeholder="State (All)"
                 fluid
+                clearable
                 selection
                 options={stateOptions}
               />
@@ -256,14 +213,17 @@ const [state, setState] = useContext(HouseContext)
             <div className="column">
               <Dropdown
                name="bedrooms"
-               onChange={(e, data) => setbedrooms ({bedrooms: data.value})}
+               size='mini'
+               onChange={(e, data) => setbedrooms (Number(data.value))}
                 placeholder="Bedrooms(All)"
                 fluid
+                clearable
                 selection
                 options={bedroomsOptions}
+             
               />
             </div>
-            <div className="column">
+            {/* <div className="column">
               <Dropdown
                name="price"
                onChange={(e, data) => setprice ({price: data.value})}
@@ -272,7 +232,17 @@ const [state, setState] = useContext(HouseContext)
                 selection
                 options={priceOptions}
               />
-            </div>
+            </div> */}
+
+            <div className="ui focus input column">
+                <Input  type="number" value={price}
+                 onChange={(e, data) => setprice (e.target.value)}
+                 placeholder="Max Price (Any)"
+            
+                 />
+              </div>
+
+
           </div>
         </div>
 
@@ -283,6 +253,7 @@ const [state, setState] = useContext(HouseContext)
       </Container>
       </form>
     </div>
+    </Responsive>
   )
 }
 

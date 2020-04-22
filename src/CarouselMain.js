@@ -40,7 +40,7 @@ function CarouselMain (props){
     
     <Grid centered columns={1}>
     {props.propertyData.map((item, index) => ( 
-    <Grid.Column >
+    <Grid.Column key={item} >
       {/* <Image src={item} />
        */}
          <Divider hidden />
