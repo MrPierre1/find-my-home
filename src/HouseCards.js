@@ -43,24 +43,31 @@ function HouseCards (props) {
     address,
     bedrooms,
     bathrooms,
-    // price,
+    price,
     photos,
     livingArea,
     description, 
     yearBuilt,
   } = props.property;
 
-  const {property} = useContext(HouseContext);
-
+  // const property = useContext(HouseContext);
+  // var i = 0;
   return (
    
       <div>
       
+  
+    {/* <div>
+
+      //getting data from context, to populate the card, whjat is the right value to get from context
+      //conext is getting data from appjs to share with other components
+      {console.log('priceis', property, i)}
+    </div> */}
     <Card style={{ margin: '30px', height: '500px'}}
-      image={property.photos[0]}
-      header={property.price}
-      meta={`${property.address.streetAddress} ${property.address.city}  ${property.address.state}`}
-      description={`${property.description.slice(0, 60)}...`}
+      image={photos[0]}
+      header={price}
+      meta={`${address.streetAddress} ${address.city}  ${address.state}`}
+      description={`${description.slice(0, 60)}...`}
       extra={
         <>
           <Grid>
@@ -68,13 +75,13 @@ function HouseCards (props) {
               <Grid.Column>
                 <a>
                   <Icon name="th" />
-                  Sqft: {property.livingArea}
+                  Sqft: {livingArea}
                 </a>
               </Grid.Column>
               <Grid.Column>
                 <a>
                   <Icon name="car" />
-                  Year Built: {property.yearBuilt}
+                  Year Built: {yearBuilt}
                 </a>
               </Grid.Column>
             </Grid.Row>
@@ -82,13 +89,13 @@ function HouseCards (props) {
               <Grid.Column>
                 <a>
                   <Icon name="bed" />
-                  Bedroom: {property.bedrooms}
+                  Bedroom: {bedrooms}
                 </a>
               </Grid.Column>
               <Grid.Column>
                 <a>
                   <Icon name="bath" />
-                  Bathroom: {property.bathrooms}
+                  Bathroom: {bathrooms}
                 </a>
               </Grid.Column>
             </Grid.Row>

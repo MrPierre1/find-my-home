@@ -20,14 +20,15 @@ import {
   Dropdown,
 } from 'semantic-ui-react';
 import test from './assets/test2.jpg';
-import myJsonArray from './Raleigh.js';
+// import myJsonArray from './Raleigh.js';
+import { HouseContext } from "./context/HouseContext";
 
 import CarouselMain from './CarouselMain';
 import HouseCards from './HouseCards';
 
 function Listings () {
   const [showCarousel, setshowCarousel] = useState (false);
-  const [jsonData, setJsonData] = useState (myJsonArray);
+  const [jsonData, setJsonData] = useState ('myJsonArray');
   const extra = (
     <a>
       <Icon name="user" />
@@ -50,9 +51,16 @@ function Listings () {
     marginTop: '50px',
   };
 
+  const properties = useContext(HouseContext);
 
   return (
     <div className="">
+
+<div>
+
+      
+      {console.log('priceis', properties)}
+    </div>
 
       <div style={headerStyle} className="ui huge header ">
         Featured Listings
@@ -67,7 +75,7 @@ function Listings () {
         <Grid>
 
           <Grid.Row columns={4}>
-            {jsonData.map ((item, index) => (
+            {properties.map ((item, index) => (
               <Grid.Column key={item.description}>
                 <HouseCards
                   property={item}
