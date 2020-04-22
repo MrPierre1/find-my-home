@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 import './App.css';
 import { HouseContext } from "./context/HouseContext";
 
+// import HouseCards from './HouseCards'
+
 
 import {
   Button,
@@ -24,6 +26,8 @@ import {
 import CarouselMain from './CarouselMain';
 
 function HouseCards (props) {
+  const [state, setState] = useContext(HouseContext)
+
   const extra = (
     <a>
       <Icon name="user" />
@@ -50,6 +54,8 @@ function HouseCards (props) {
     yearBuilt,
   } = props.property;
 
+  
+
   // const property = useContext(HouseContext);
   // var i = 0;
   return (
@@ -57,12 +63,9 @@ function HouseCards (props) {
       <div>
       
   
-    {/* <div>
-
-      //getting data from context, to populate the card, whjat is the right value to get from context
-      //conext is getting data from appjs to share with other components
-      {console.log('priceis', property, i)}
-    </div> */}
+    <div>
+      {/* {console.log('pwhat is state', state, state.myJsonArray)} */}
+    </div>
     <Card style={{ margin: '30px', height: '500px'}}
       image={photos[0]}
       header={price}
@@ -101,7 +104,7 @@ function HouseCards (props) {
             </Grid.Row>
           </Grid>
 
-          <CarouselMain />
+          <CarouselMain key={photos[0]} propertyData={photos} />
         </>
         
       }

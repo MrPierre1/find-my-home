@@ -1,168 +1,21 @@
 
-import React from 'react'
-const myJsonArray = [{
-    "address": {
-      "streetAddress": "11803 Wake Bluff Dr",
-      "city": "Raleigh",
-      "state": "NC",
-      "zipcode": "27614",
-      "neighborhood": "North Raleigh",
-      "community": null,
-      "subdivision": null
-    },
-    "bedrooms": 5,
-    "bathrooms": 5,
-    "price": 675000,
-    "yearBuilt": 2007,
-    "longitude": -78.576106,
-    "latitude": 35.931722,
-    "description": "STUNNING CUSTOM EXECUTIVE BASEMENT HOME! 5 years home warranty paid! Bright spacious rooms on all 3 floors. Basement w/full kitchen, theater,  exercise, bonus & rec rooms with full bath. Beautiful Hrwd floors,1st floor bedroom w/full bath, large kitchen w/huge center island, desk, opens up to screened porch, separate office, dining. Master bedroom suite w/Jacuzzi bath tub, walk in shower, spa. Conveying -theater seating, screen & projector, washer dryer,2 refrigerators. MUST SEE!!",
-    "livingArea": 5525,
-    "currency": "USD",
-    "url": "https://www.zillow.com/homedetails/11803-Wake-Bluff-Dr-Raleigh-NC-27614/82671059_zpid/",
-    "foot": ["https://photos.zillowstatic.com/p_f/ISb9ddh247pzom1000000000.jpg",  "https://photos.zillowstatic.com/p_f/ISjnpm240andsm1000000000.jpg"],
-    "photos": [
-      "https://photos.zillowstatic.com/p_f/ISb9ddh247pzom1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrtryka4ivasm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjnpm240andsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbhnakxv1fgsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3bly1rrt6jsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISv4jmjknlylsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISnyga1ejdqosm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfseyi7f5irsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS33b1zvzyg2pm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS7mcm01bx9usm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvw8pgpvq85pm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzfaaiu6p1xsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISnq6dyiri08pm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISr98yzn2htzsm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfk41gcnasapm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISj36mhhy8l2tm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS7e2px5j2kdpm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbx3azau0d5tm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISz70dfzeubgpm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3r1yg4qs48tm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISr1y0xsam3jpm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvkzlyxlkwatm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjvvoem6evlpm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISnex9grhcodtm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISf8vxxkd4ggtm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS72tlfe9w7jtm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzvq9x75ozltm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrpoxe11grotm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjjmlwuw7jrtm1000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbdk9eoszautm1000000000.jpg"
-    ]
-  },
-  {
-    "address": {
-      "streetAddress": "7829 Vauxhill Dr",
-      "city": "Raleigh",
-      "state": "NC",
-      "zipcode": "27615",
-      "neighborhood": "North Raleigh",
-      "community": null,
-      "subdivision": null
-    },
-    "bedrooms": 3,
-    "bathrooms": 3,
-    "price": 425000,
-    "yearBuilt": 1971,
-    "longitude": -78.614899,
-    "latitude": 35.892536,
-    "description": "North Ridge Beauty! $50k in improvements! Wall removed to open Kitchen & Dining. New White Cabinets, Granite, Island, SS appliances & Range hood, Recessed Lighting. Smooth Ceilings, Hardwoods everywhere! Anderson Window w/Plantation Shutters throughout. Familyrm w/wood or gas FP flanked by builtins, Large Fenced, manicured lawn, Raised garden beds, Lg Storage Shed. Tankless water heater, Brick & fiber cement siding, Large Garage w/workshop(240v), walk to new North Ridge Elementary. Virtual tour available!",
-    "livingArea": 2002,
-    "currency": "USD",
-    "url": "https://www.zillow.com/homedetails/7829-Vauxhill-Dr-Raleigh-NC-27615/6422224_zpid/",
-    "photos": [
-      "https://photos.zillowstatic.com/p_f/ISjr06gp6vn5mh0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfglvformhooj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS7ajjxhne9roj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISz3h7fbj61uoj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrxevw4fyswoj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISj3y75sc4ej3k0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjrcjeyaqkzoj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbla7wr6ic2pj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3f8vdl2a45pj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISv86jvey1w7pj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISn247d8utnapj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfw1vu1qlfdpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS7qzicvld7gpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzjx6uoh5zipj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrdvubidxqlpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISj7titb9piopj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISb1r6b55harpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3vousy092upj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3v0g11tgjj8k0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvomiasw0uwpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISnik6slsslzpj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfciu9fokd2qj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS76gir8kc55qj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzzd692g4x7qj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrtbuqvbwoaqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvoy3juo8bm8k0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjn9i8p7ogdqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbh76qi3g8gqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3b5u7cz70jqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISv43ip5vzrlqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbxvvml8w5m3k0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISny067zqrjoqj0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfsytosmjbrqj0000000000.jpg"
-    ]
-  },
-  {
-    "address": {
-      "streetAddress": "4700 Easthampton Dr",
-      "city": "Raleigh",
-      "state": "NC",
-      "zipcode": "27604",
-      "neighborhood": "Northeast Raleigh",
-      "community": null,
-      "subdivision": null
-    },
-    "bedrooms": 4,
-    "bathrooms": 4,
-    "price": 300000,
-    "yearBuilt": 1994,
-    "longitude": -78.560769,
-    "latitude": 35.815469,
-    "description": "Basement Home w/Oversized Garage & MovieRm! Spacious Kitchen w/Crown Molding, Raised Panel Cabs, Lazy Susan, Tile Backsplash, Under Cab Lighting, Double Bowl SS Sink, Chrome Pull-out Faucet, Smooth Top Range, Built-in MW & DW! Bright Breakfast Rm! 1st Floor Master Bdrm w/Crown Molding & Built-in Bookshelves! Master Bath w/Crown Molding, His & Her Vanities, Linen Closet, Garden Tub & Sep Shower! FamRm w/Crown Molding, Gas Log FP & Ceiling Fan w/Light! 2ndFlr BonusRm & 3rd Flr FlexRm! Lg Deck & Fenced Yard!",
-    "livingArea": 3111,
-    "currency": "USD",
-    "url": "https://www.zillow.com/homedetails/4700-Easthampton-Dr-Raleigh-NC-27604/6526124_zpid/",
-    "photos": [
-      "https://photos.zillowstatic.com/p_f/ISjbssnykgbshf0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrpked4qnitkt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzfq27pul98fu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISr9oqoiqd1bfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjji2vxlfawkt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISj3me6cm5tdfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbdgqcrh72zkt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbxj2o5ixkgfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS37eeukdzt1lt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3rhq5zdpcjfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISv0c2ce9rl4lt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvkfens9h4mfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISnu9qt75jd7lt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISfo7eb11b5alt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISned25m59wofu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS7i52tuw2xclt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISf8bqmf11orfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzb3qaosuoflt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS729e49xsfufu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISr51eshomgilt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzv62m2tk7xfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISrp4q3woczzfu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjzy1abke8llt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzbfbjqk2654u0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISjj2elpk4r2gu0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbtwpr4g60olt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISbt8b078ehd4u0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/IS3nud9ybyrqlt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISvgs1rr7qjtlt0000000000.jpg",
-      "https://photos.zillowstatic.com/p_f/ISzjldv8r6ed1u0000000000.jpg"
-    ]
-  }
-]
+import React, {useState} from 'react'
+import myJsonArray from './../Raleigh.json';
+
+
+
+const HouseContext = React.createContext([{}, () => {}]);
+
+const HouseContextProvider = (props) => {
+  const [state, setState] = useState({myJsonArray});
+  return (
+    <HouseContext.Provider value={[state, setState]}>
+      {props.children}
+    </HouseContext.Provider>
+  );
+}
+
+export { HouseContext, HouseContextProvider };
+
   
-  export const HouseContext = React.createContext(myJsonArray);
+  // export const HouseContext = React.createContext(myJsonArray);

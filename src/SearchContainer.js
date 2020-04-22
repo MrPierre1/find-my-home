@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './App.css'
 import myJsonArray from './Raleigh.js'
 
@@ -24,6 +24,8 @@ import {
   Dropdown,
 } from 'semantic-ui-react'
 import test from './assets/test3.jpg';
+import { HouseContext } from './context/HouseContext'
+
 
 function SearchContainer() {
   const [jsonData, setJsonData] = useState(myJsonArray)
@@ -159,16 +161,34 @@ function SearchContainer() {
     },
   ]
 
-const [state, setstate] = useState('')
+const [nationState, setnationState] = useState('')
 const [keywords, setkeywords] = useState([])
 const [city, setcity] = useState('')
 const [price, setprice] = useState('')
 const [bedrooms, setbedrooms] = useState('')
 
+const [state, setState] = useContext(HouseContext)
+
+
   const handleSubmit = (event, data) => {
     event.preventDefault ();
-    var test = '{[data.name]: data.value}'
-    console.log(city, price, keywords, bedrooms,state, 'and it data')
+  
+    console.log(city, price, keywords, bedrooms,nationState, 'and it data')
+    // setState(state => ({ ...state, name: 'Clicked!' }))}>
+    //  var queryParams = {city, name, keywords, bedrooms, nationState}
+
+    // data.filter((item) => filterKeys.some(key => item[key]
+    //   .toString().toLowerCase()
+    //   .includes(value.toLowerCase()) && item[key]));
+
+//      console.log('price is price', price, )
+//     setState({
+//       Object.keys(queryParams)
+//      myJsonArray:  state.myJsonArray.filter(filteredData => filteredData.price == queryParams.price)
+//  // myJsonArray: state.myJsonArray.filter(function(item) {
+//       //   return item.price !== 675000;
+//       // }) 
+//     })
   };
 
   // const handleChange = (event, data) => {
@@ -220,8 +240,8 @@ const [bedrooms, setbedrooms] = useState('')
             </div>
             <div className="column">
               <Dropdown
-               name="state"
-               onChange={(e, data) => setstate ({state: data.value})}
+               name="nationState"
+               onChange={(e, data) => setnationState ({nationState: data.value})}
                 placeholder="State (All)"
                 fluid
                 selection
