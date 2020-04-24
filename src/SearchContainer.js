@@ -87,15 +87,20 @@ function SearchContainer() {
       text: '3',
       value: '3',
     },{
-      key: '4+',
+      key: '4',
       text: '4+',
-      value: '4+',
-    },
-    {
+      value: '4',
+    }
+    ,{
       key: '5',
-      text: '5',
+      text: '5+',
       value: '5',
-    },
+    }
+    ,{
+      key: '6',
+      text: '6+',
+      value: '6',
+    }
   ]
 
   const priceOptions = [
@@ -137,6 +142,11 @@ const handleSubmit = (event) => {
   var result = []
 for (var prop in filter){
     var filtered = filter[prop]
+    // console.log('filtereddata ', filtered.bedrooms, typeof filtered.bed)
+    // if(filter.bedrooms == 4){
+    //   console.log(typeof filtered.bedrooms, 'bedrooms is here', 'AND HERE',  filtered.bedrooms)
+    // }
+
         data.find((obj, index) => 
             {
                     var myFilter = Object.values(filtered) 
@@ -144,6 +154,7 @@ for (var prop in filter){
                 if (propertyData.includes(myFilter[0])){
                     result.push(data[index])
                 }
+                // if()
             });
 }
 console.log('myresult', result, result.length )
