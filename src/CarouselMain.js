@@ -27,7 +27,7 @@ function CarouselMain (props){
     objectFit:'cover', 
   }
   const submitStyle = {
-    marginTop: '30px',
+    // marginTop: '30px',
     color: 'white',
     backgroundColor: 'navy',
   }

@@ -54,21 +54,16 @@ function HouseCards (props) {
     yearBuilt,
   } = props.property;
 
-  
-
-  // const property = useContext(HouseContext);
-  // var i = 0;
   return (
    
       <div>
-      
-  
     <div>
-      {/* {console.log('pwhat is state', state, state.myJsonArray)} */}
     </div>
+    
     <Card style={{ margin: '30px', height: '500px'}}
       image={photos[0]}
-      header={price}
+      header={`$${price}`}
+      
       meta={`${address.streetAddress} ${address.city}  ${address.state}`}
       description={`${description.slice(0, 60)}...`}
       extra={
@@ -101,12 +96,23 @@ function HouseCards (props) {
                   Bathroom: {bathrooms}
                 </a>
               </Grid.Column>
-            </Grid.Row>
-          </Grid>
+              </Grid.Row>
+</Grid>
+<Grid columns='equal'>
+    <Grid.Column width={12}>
+      <CarouselMain key={photos[0]} propertyData={photos}/>
+    </Grid.Column>
+    <Grid.Column width={4}  style={{marginTop: '5px',
+    marginLeft: '-5px'}} >
 
-          <CarouselMain key={photos[0]} propertyData={photos} />
-        </>
-        
+      <a>
+                  <Icon name="heart outline" size="big"/>
+
+                </a>
+     
+    </Grid.Column>
+  </Grid>
+        </>  
       }
     />
     
