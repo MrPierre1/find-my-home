@@ -37,22 +37,7 @@ function DesktopContainer  ({children}) {
   
       return (
         <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-          {/* <Visibility
-            once={false}
-            onBottomPassed={showFixedMenu}
-            onBottomPassedReverse={hideFixedMenu}
-          > */}
-            <Segment
-              inverted
-              textAlign='center'
-              style={{ minHeight: 10, padding: '1em 0em' }}
-              vertical
-            >
-              <AppMenu/>
-              {/* <HomepageHeading /> */}
-              {/* {children} */}
-            </Segment>
-          {/* </Visibility> */}
+        
   
           {children}
         </Responsive>

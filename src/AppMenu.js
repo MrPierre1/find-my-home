@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Button,
   Container,
@@ -16,6 +16,18 @@ import {
   Visibility,
 } from 'semantic-ui-react';
 
+import FavPopup from './FavPopup'
+import { HouseContext } from './context/HouseContext';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
+
 const getWidth = () => {
   const isSSR = typeof window === 'undefined';
 
@@ -26,8 +38,11 @@ function AppMenu() {
 
     const [hideFixedMenu, setHideFixedMenu] = useState({ fixed: false })
   const [showFixedMenu, setShowFixedMenu] = useState({ fixed: true })
+const dataJson = useContext(HouseContext)
   const fixed = false
   return (
+
+    
     <Menu
       fixed={fixed ? 'top' : null}
       inverted={!fixed}
@@ -36,16 +51,23 @@ function AppMenu() {
       size="large"
     >
       <Container>
-        <Menu.Item as="a" active>
-          Home
+
+  
+
+
+        <Menu.Item active>
+            <Link to="/">Buy</Link>
         </Menu.Item>
-        <Menu.Item as="a">Work</Menu.Item>
-        <Menu.Item as="a">Company</Menu.Item>
-        <Menu.Item as="a">Careers</Menu.Item>
+        <Menu.Item >
+        <Link to="/sell">Sell</Link>
+        </Menu.Item>
+        <Menu.Item >Company</Menu.Item>
+        <Menu.Item >Careers</Menu.Item>
         <Menu.Item position="right">
-          <Button as="a" inverted={!fixed}>
+          <FavPopup data={dataJson} />
+          {/* <Button as="a" inverted={!fixed}>
             Log in
-          </Button>
+          </Button> */}
           <Button
             as="a"
             inverted={!fixed}

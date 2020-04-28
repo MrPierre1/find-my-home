@@ -39,7 +39,9 @@ function Listings() {
     backgroundColor: 'navy',
   }
   const headerStyle = {
-    paddingTop: '50px',
+    // paddingTop: '50px',
+    marginTop: '20px',
+    textAlign:'center'
   }
 
   const cardContainerStyle = {
@@ -53,7 +55,7 @@ function Listings() {
     <div className="">
       {/* <div>{console.log(state.myJsonArray, 'priceis', { state })}</div> */}
 
-      <div style={headerStyle} className="ui huge header ">
+      <div style={headerStyle} className="ui huge header center ">
         Featured Listings
         {console.log('the items are here', state)}
       </div>
