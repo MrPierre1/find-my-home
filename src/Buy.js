@@ -15,11 +15,11 @@ function Home() {
   return (
     <div className="Home">
        <HouseContextProvider>
-      <HomepageLayout>
+      {/* <HomepageLayout> */}
       <SearchContainer/> 
       <Listings />
         <Footer/>
-      </HomepageLayout>
+      {/* </HomepageLayout> */}
       </HouseContextProvider>
     </div>
   );
