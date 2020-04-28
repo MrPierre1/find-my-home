@@ -99,23 +99,91 @@ function SellHeader () {
                   </Grid.Column>
                 </Grid.Row>
 
-
-                <Grid.Row style={{backgroundColor:'red'}}>
+                <Grid.Row>
                   <Grid.Column>
-  <Segment style={{backgroundColor:'black', margin:'0px', width:'100%'}} size='massive'>
-    <Image src={test} size='large' floated='right' />
-    <p>
-      Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia
-      facete scriptorem, est autem aliquip detraxit at. Usu ocurreret
-      referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque
-      electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei
-      ex natum rebum iisque.
-    </p>
-  </Segment>
-                  </Grid.Column>
+
+                    
+                    <div
+                  
+                      style={{
+                        margin: '90px 90px',
+                        width: '100%',
+                        height: '500px'
+                        // border: '0',
+                        // borderStyle: 'none',
+                      }}
+                  
+                    >
+
+                      <Image src={test} size="large" floated="right" />
+                      
+                     
+                    </div>
+
+
+                    </Grid.Column>
+                  <Grid.Column>
+
+                    <div
+                     
+                      style={{
+                        margin: '90px 0',
+                        width: '100%',
+                        border: '0',
+                        borderStyle: 'none',
+                      }}
+                      size="big"
+                    >
+
+                      
+                      <div >
+
+                        <List>
+                          <List.Item>
+                            <List.Icon name="target" style={{color: 'black'}} />
+                            <List.Content>
+                              <List.Header>
+                                Agent pairing technology
+                              </List.Header>
+                              <List.Description>
+                                Our Real Estate agent pairing technology connects you with agents in real time for your selling an buying needs.
+                              </List.Description>
+                            </List.Content>
+                          </List.Item>
+                          <List.Item>
+                            <List.Icon
+                              name="money bill alternate"
+                              style={{color: 'black'}}
+                            />
+                            <List.Content>
+                              <List.Header>Time-saving data</List.Header>
+                              <List.Description>
+                                Our proprietary pairing algorithm is base on 20 years of transaction data pairing home sellers with selling agents.
+                              </List.Description>
+                            </List.Content>
+                          </List.Item>
+                          <List.Item>
+                            <List.Icon name="chat" style={{color: 'black'}} />
+                            <List.Content>
+                              <List.Header>Personalized support</List.Header>
+                              <List.Description>
+                                Our team of experts will work with you until you've found the right selling agent
+                              </List.Description>
+                            </List.Content>
+                          </List.Item>
+
+                        </List>
+
+                      </div>
+                    </div>
+                  
+
+                    </Grid.Column>
+
+
+              
                 </Grid.Row>
 
-                
               </Grid>
 
             </div>
