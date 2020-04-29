@@ -22,6 +22,9 @@ import {
   Visibility,
 } from 'semantic-ui-react';
 
+// import { HouseContextProvider } from "./context/HouseContext";
+
+
 import Buy from './Buy';
 import Sell from './Sell';
 import AppMenu from './AppMenu';
@@ -50,6 +53,8 @@ function SellHeader () {
 
   return (
     <div>
+       <HouseContextProvider>
+
 
       <div>
         <div
@@ -76,7 +81,7 @@ function SellHeader () {
           <div>
             <Grid>
 
-              <Grid.Row
+               <Grid.Row
                 style={{
                   margin: '-200px 0px 0px 30px',
                   fontSize: '20px',
@@ -133,9 +138,7 @@ function SellHeader () {
                     style={{
                       width: '100%',
                       height: '100%',
-                      // margin: '90px auto 0 0',
-                      // border: '0',
-                      // borderStyle: 'none',
+                   
                     }}
                   >
 
@@ -146,10 +149,7 @@ function SellHeader () {
                       style={{
                         width: '100%',
                         height: '100%',
-                        // margin: '90px auto 0 0',
-
-                        // border: '0',
-                        // borderStyle: 'none',
+                       
                       }}
                     />
                   </div>
@@ -210,14 +210,14 @@ function SellHeader () {
 
                 </Grid.Column>
 
-              </Grid.Row>
+              </Grid.Row> 
 
 
 
 
 
 
-              <Grid.Row columns={2} centered>
+               <Grid.Row columns={2} centered>
       
                 <Grid.Column>
 
@@ -279,9 +279,6 @@ function SellHeader () {
   style={{
     width: '100%',
     height: '100%',
-    // margin: '90px auto 0 0',
-    // border: '0',
-    // borderStyle: 'none',
   }}
 >
 
@@ -302,7 +299,7 @@ function SellHeader () {
 
 </Grid.Column>
 
-              </Grid.Row>
+              </Grid.Row> 
             </Grid>
 
           </div>
@@ -311,7 +308,9 @@ function SellHeader () {
         </div>
       </div>
 
+</HouseContextProvider>
     </div>
+  
   );
 }
 
