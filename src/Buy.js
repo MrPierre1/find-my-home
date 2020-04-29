@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import './App.css';
-import HomepageLayout from './HomePageLayout';
+// import HomepageLayout from './HomePageLayout';
 import Footer from './Footer'
 import SearchContainer from './SearchContainer'
 import Listings from './Listings'
@@ -18,7 +18,7 @@ function Home() {
       {/* <HomepageLayout> */}
       <SearchContainer/> 
       <Listings />
-        <Footer/>
+        {/* <Footer/> */}
       {/* </HomepageLayout> */}
       </HouseContextProvider>
     </div>

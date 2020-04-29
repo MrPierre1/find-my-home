@@ -16,7 +16,7 @@ import {
   Sidebar,
   Visibility,
 } from 'semantic-ui-react'
-import HomepageLayout from './HomePageLayout';
+// import HomepageLayout from './HomePageLayout';
 
 function Footer() {
   return (

@@ -1,7 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import './App.css';
-import HomepageLayout from './HomePageLayout';
-import Footer from './Footer'
+// import HomepageLayout from './HomePageLayout';
+ 
 import SearchContainer from './SearchContainer'
 import Listings from './Listings'
 import { HouseContextProvider } from "./context/HouseContext";
@@ -32,15 +32,20 @@ import {
   Link
 } from "react-router-dom";
 import MyHomes from './Sell';
+import test from './assets/mon125009.jpg'
+import Footer from './Footer'
 // import myJsonArray from './Raleigh';
  
 
 
 
 function App() {
+
+  const [active, setactive] = useState('')
+ const handleItemClick = (e, { name }) => setactive({ active: name })
   return (
     <HouseContextProvider>
-     <HomepageLayout>
+     {/* <HomepageLayout> */}
     
 <Router>
         <Segment
@@ -49,9 +54,31 @@ function App() {
               style={{ minHeight: 0, padding: '1em 10em' }}
               vertical
             >
-              <AppMenu/>
+             
+  <div>
+    <Menu fixed='top' inverted size='massive' style={{height:'100px'}}>
+      <Container>
+        <Menu.Item as='a' header style={{border:'1px white solid', color:'white'}} 
+         name='Buy'
+          active={active === 'Buy'}
+          onClick={handleItemClick}>
+        <Link to="/">Buy</Link>
+       
+          {/* <Image size='mini' src={test} style={{ marginRight: '1.5em' }} /> */}
+   
+        </Menu.Item>
+        <Menu.Item as='a'
+         name='Sell'
+         active={active === 'Sell'}
+         onClick={handleItemClick}
+        >
+        <Link to="/sell">Sell</Link>
+        </Menu.Item>
+      </Container>
+    </Menu>
+  </div>
             
-            </Segment>
+    </Segment>
         <Switch>
           <Route exact path="/">
             <Buy />
@@ -65,7 +92,8 @@ function App() {
         </Switch>
      
     </Router>
- </HomepageLayout>
+    {/* <Footer /> */}
+
      </HouseContextProvider>
   );
 }
