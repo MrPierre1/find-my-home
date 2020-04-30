@@ -16,6 +16,7 @@ import {
   Input,
   List,
   Menu,
+  Popup, 
   Responsive,
   Segment,
   Sidebar,
@@ -45,14 +46,8 @@ function MorgageCalculator (props) {
     const n = yearsValue * 12
     const  payment = a * r * (Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
    
-    console.log('nmbers', Math.round(payment))
-    if(Math.round(payment) === NaN){
-     return 0
-    }
-    else{
-       return Math.round(payment)
-    }
-  
+    console.log('nmbers', Math.round(payment),   typeof (Math.round(payment)))
+    return Math.round(payment)
    
   }
 
@@ -64,19 +59,18 @@ function MorgageCalculator (props) {
     
         
   
-          <Grid.Row  style={{paddingBottom:'30px', backgroundColor:'jj'}} columns={2} >
+          <Grid.Row  style={{paddingBottom:'30px', border:'1px solid black'}} columns={2} >
 
    
-<Grid.Column  style={{backgroundColor:'l'}} width={4}>
+<Grid.Column width={8} centered>
 
+<div style={{backgroundColor:'kkred', margin:'0 0 0 150px'}}>
 
-
-
-  <h4>I want to Borrow: ${loanAmount}</h4>
+  <h2>I want to Borrow: ${loanAmount}</h2>
+ 
       <input
-        
-
-       className="input-range__slider"
+      data-tooltip="Slide the dot to select your loan amount" data-position="bottom center"
+        className="input-range__slider"
         role="slider"
           type='range'
           min={0}
@@ -87,9 +81,11 @@ function MorgageCalculator (props) {
           onChange={(e) => setloanAmount( e.target.value)}
         />
 
-  <h4>Over {yearsValue} year{yearsValue > 1 && "s"}</h4>
+  <h2>Over {yearsValue} year{yearsValue > 1 && "s"}</h2>
       
         <input
+        data-tooltip="Slide the dot to select the length of your loan" data-position="bottom center"
+     
         type='range'
         color='blue'
           step={1}
@@ -101,9 +97,11 @@ function MorgageCalculator (props) {
 
 
 
-<h4>Interest Rate {interestRate}</h4>
+<h2>Interest Rate {interestRate}</h2>
       
       <input
+      data-tooltip="Slide the dot to select your interest rate" data-position="bottom center"
+     
       type='range'
       color='blue'
         step={.5}
@@ -116,15 +114,22 @@ function MorgageCalculator (props) {
   {/* <h1> Monthly Payment ${Math.round(paymentTotal())}</h1> */}
 
 
+</div>
+
+
+
 
 </Grid.Column>
 
 
-<Grid.Column style={{backgroundColor:'l'}} width={12}>
+<Grid.Column style={{backgroundColor:'kkblue'}} width={8}>
+
+<div style={{margin:'100px 0 0 -100px '}}>
+
+  <h1> ${ interestRate < 1  ? 0 : paymentTotal()} Per Month </h1>
 
 
-
-  <h1 style={{margin:'100px 0 0 0px '}}> Monthly Payment ${paymentTotal()}</h1>
+</div>
 
 
 

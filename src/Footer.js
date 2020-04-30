@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import {
   Button,
   Container,
@@ -15,46 +15,60 @@ import {
   Segment,
   Sidebar,
   Visibility,
-} from 'semantic-ui-react'
+} from 'semantic-ui-react';
 // import HomepageLayout from './HomePageLayout';
 
-function Footer() {
+function Footer () {
+  const anchorStyle = {
+    color: 'white',
+  };
   return (
     <div className="Footer">
-      <Segment inverted vertical style={{ padding: '5em 0em' }}>
-      <Container>
-        <Grid divided inverted stackable>
-          <Grid.Row>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='About' />
-              <List link inverted>
-                <List.Item as='a'>Sitemap</List.Item>
-                <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header inverted as='h4' content='Services' />
-              <List link inverted>
-                <List.Item as='a'>Banana Pre-Order</List.Item>
-                <List.Item as='a'>DNA FAQ</List.Item>
-                <List.Item as='a'>How To Access</List.Item>
-                <List.Item as='a'>Favorite X-Men</List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as='h4' inverted>
-                Footer Header
-              </Header>
-              <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Segment>
+      <Segment inverted vertical style={anchorStyle}>
+        <Container>
+          <Grid divided inverted stackable columns="equal">
+            <Grid.Row style={{margin: '20px 0px 0 180px'}}>
+              <Grid.Column>
+                <a href="https://twitter.com/explore" style={anchorStyle}>
+                  <Icon.Group size="large">
+                    <Icon name="twitter" />
+                    <Icon corner name="add" />
+                  </Icon.Group>
+
+                  Add on Twitter
+
+                </a>
+
+              </Grid.Column>
+              <Grid.Column>
+
+                <a href="https://github.com/MrPierre1/" style={anchorStyle}>
+                  <Icon.Group size="large">
+                    <Icon name="github" />
+                    <Icon corner name="add" />
+                  </Icon.Group>
+                  Add on Github
+
+                </a>
+
+              </Grid.Column>
+              <Grid.Column>
+                <a href="https://youtube.com" style={{color: 'white'}}>
+
+                  <Icon.Group size="large">
+                    <Icon name="youtube play" />
+                    <Icon corner name="add" />
+                  </Icon.Group>
+                  Add on Youtube
+
+                </a>
+
+              </Grid.Column>
+
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </Segment>
     </div>
   );
 }

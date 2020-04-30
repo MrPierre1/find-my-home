@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, Suspense} from 'react';
 import './App.css';
 // import HomepageLayout from './HomePageLayout';
  
@@ -22,10 +22,11 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
-import Buy from './Buy'
+// import Buy from './Buy'
 import Sell from './Sell'
 import Morgages from './Morgages'
 import AppMenu from './AppMenu'
+// const Buy = React.lazy(() => import('./Buy'));
 
 import {
   BrowserRouter as Router,
@@ -44,8 +45,22 @@ import Footer from './Footer'
 
 function App() {
 
+const Buy = React.lazy(() => import('./Buy'));
+
+
   const [activeItem, setactiveItem] = useState('')
- const handleItemClick = (e, { name }) => setactiveItem( name )
+  let [setStyle, setsetStyle] = useState({})
+
+ const handleItemClick = (e, { name }) => {
+   console.log('name', name)
+    setactiveItem( name )
+    if(name === 'Buy'){
+    setsetStyle({backgroundColor:'black', color:'white', fontSize:'20px'})
+    }
+    // setsetStyle({backgroundColor:'black', color:'white', fontSize:'20px'})
+    
+ }
+
   return (
     <HouseContextProvider>
      {/* <HomepageLayout> */}
@@ -57,7 +72,8 @@ function App() {
               style={{ minHeight: 0, padding: '1em 10em' }}
               vertical
               inverted
-              fixed
+
+              
             >
              
   <div>
@@ -68,7 +84,7 @@ function App() {
             active={activeItem === 'Buy'}
             onClick={handleItemClick}
             as={Link} to='/'
-            // style={{backgroundColor:'black', color:'white', fontSize:'20px'}}
+            style={ activeItem === 'Buy' ? {backgroundColor:'#333', color:'white', fontSize:'20px'} : {}}
           >
             Buy
             </Menu.Item>
@@ -78,6 +94,10 @@ function App() {
             active={activeItem === 'Sell'}
             onClick={handleItemClick}
             as={Link} to='/sell'
+            style={ activeItem === 'Sell' ? {backgroundColor:'black', color:'white', fontSize:'20px'} : {}}
+
+            // style={setStyle}
+
           >
            Sell
             </Menu.Item>
@@ -87,15 +107,15 @@ function App() {
             active={activeItem === 'Morgages'}
             onClick={handleItemClick}
             as={Link} to='/morgages'
+            style={ activeItem === 'Morgages' ? {backgroundColor:'black', color:'white', fontSize:'20px'} : {}}
+
+            // style={setStyle}
+
 
           >
           Morgages
           </Menu.Item>
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
-            </Menu.Item>
-          </Menu.Menu>
+          
         </Menu>
     
 
@@ -122,6 +142,8 @@ function App() {
   </div>
             
     </Segment>
+    <Suspense fallback={<div>Loading...</div>}>
+
         <Switch>
           <Route exact path='/' component={Buy} >
             {/* <Buy /> */}
@@ -133,7 +155,7 @@ function App() {
             {/* <Dashboard /> */}
           </Route>
         </Switch>
-     
+     </Suspense>
     </Router>
     <Footer />
 
