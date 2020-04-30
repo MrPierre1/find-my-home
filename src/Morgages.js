@@ -29,22 +29,132 @@ import {HouseContextProvider} from './context/HouseContext';
 import test from './assets/test4.jpg';
 import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
+import paperworkImage from './assets/paperwork.jpg'
+import veteranImage from './assets/veteran.jpg'
+import cvImage from './assets/cv.jpg'
+import soldMorgage from './assets/soldm.jpg'
+import walletImage from './assets/wallet.jpg'
+import MorgageCalculator from './MorgagesCalculator';
 
-
-
-function MorgageRates () {
+function MorgageNews () {
   return (
-    <Grid.Row columns={3} centered style={{height:'500px'}}>
+    <Grid.Row columns={3}>
 
+   
+      <Grid.Column>
 
-<Grid.Column style={{backgroundColor:'red'}}>
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            // backgroundColor: 'red'
+          }}
+        >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
 
-</Grid.Column>
-      <Grid.Column style={{backgroundColor:'blue'}}>
+          <Image
+            src={cvImage}
+            size="small"
+            floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/finance/essential-mortgage-faq/"
+            style={{
+              width: '100%',
+              height: '',
+            }}
+          />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/finance/essential-mortgage-faq/"
+              target="_blank"
+            >
+             Mortgage FAQ: Essential Answers to All Your Questions About Home Loans in the Coronavirus Era
+            </a>
+          </p>
+
+        </div>
 
       </Grid.Column>
 
-      <Grid.Column style={{backgroundColor:'green'}}>
+      <Grid.Column>
+
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            // backgroundColor: 'red'
+          }}
+        >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
+
+          <Image
+            src={soldMorgage}
+            size="small"
+            floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/finance/why-does-my-mortgage-keep-getting-sold/"
+            style={{
+              width: '100%',
+              height: '',
+            }}
+          />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/finance/why-does-my-mortgage-keep-getting-sold/"
+              target="_blank"
+            >
+             Why Does My Mortgage Keep Getting Sold?
+            </a>
+          </p>
+
+        </div>
+
+      </Grid.Column>
+
+
+
+      <Grid.Column>
+
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            // backgroundColor: 'red'
+          }}
+        >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
+
+          <Image
+            src={walletImage}
+            size="small"
+            floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/finance/hidden-costs-of-self-isolating-at-home-during-coronavirus/"
+            style={{
+              width: '100%',
+              height: '',
+            }}
+          />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/finance/hidden-costs-of-self-isolating-at-home-during-coronavirus/"
+              target="_blank"
+            >
+              
+Watch Your Wallet: 7 Hidden Costs of Self-Isolating at Home During Coronavirus
+            </a>
+          </p>
+
+        </div>
 
       </Grid.Column>
 
@@ -52,7 +162,7 @@ function MorgageRates () {
   );
 }
 
-function Benefit () {
+function MorgageData () {
   const headerStyle = {
     fontSize: '25px',
   };
@@ -63,7 +173,7 @@ function Benefit () {
   };
 
   return (
-    <Grid.Row columns={2}>
+    <Grid.Row columns={3}>
 
       <Grid.Column>
 
@@ -71,76 +181,113 @@ function Benefit () {
           style={{
             width: '100%',
             height: '100%',
+            // backgroundColor: 'red'
           }}
         >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
 
           <Image
-            src={image1}
-            size="large"
+            src={image2}
+            size="small"
             floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/finance/common-mortgage-questions/"
             style={{
               width: '100%',
-              height: '100%',
+              height: '',
             }}
           />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/finance/common-mortgage-questions/"
+              target="_blank"
+            >
+              5 Mortgage Questions Home Buyers Always Ask—Answered
+            </a>
+          </p>
+
         </div>
 
       </Grid.Column>
+
       <Grid.Column>
 
         <div
           style={{
-            margin: '90px 0',
             width: '100%',
-            border: '0',
-            borderStyle: 'none',
+            height: '100%',
+            // backgroundColor: 'red'
           }}
-          size="big"
         >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
 
-          <div>
+          <Image
+            src={paperworkImage}
+            size="small"
+            floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/finance/decoding-the-listings-mortgages-explained/"
+            style={{
+              width: '100%',
+              height: '',
+            }}
+          />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/finance/decoding-the-listings-mortgages-explained/"
+              target="_blank"
+            >
+              Mortgage Terms Explained, From ARMs to Points
+            </a>
+          </p>
 
-            <List>
-              <List.Item>
-                <List.Icon name="target" style={{color: 'black'}} />
-                <List.Content>
-                  <List.Header style={headerStyle}>
-                    Agent pairing technology
-                  </List.Header>
-                  <List.Description style={descriptionStyle}>
-                    Our Real Estate agent pairing technology connects you with agents in real time for your selling an buying needs.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon
-                  name="money bill alternate"
-                  style={{color: 'black'}}
-                />
-                <List.Content>
-                  <List.Header style={headerStyle}>
-                    Time-saving data
-                  </List.Header>
-                  <List.Description style={descriptionStyle}>
-                    Our proprietary pairing algorithm is base on 20 years of transaction data pairing home sellers with selling agents.
-                  </List.Description>
-                </List.Content>
-              </List.Item>
-              <List.Item>
-                <List.Icon name="chat" style={{color: 'black'}} />
-                <List.Content>
-                  <List.Header style={headerStyle}>
-                    Personalized support
-                  </List.Header>
-                  <List.Description style={descriptionStyle}>
-                    Our team of experts will work with you until you've found the right selling agent
-                  </List.Description>
-                </List.Content>
-              </List.Item>
+        </div>
 
-            </List>
+      </Grid.Column>
 
-          </div>
+
+
+      <Grid.Column>
+
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            // backgroundColor: 'red'
+          }}
+        >
+          {/* <a href="https://www.realtor.com/advice/finance/common-mortgage-questions/"> */}
+
+          <Image
+            src={veteranImage}
+            size="small"
+            floated="right"
+            centered
+            target="_blank"
+            as="a"
+            href="https://www.realtor.com/advice/guides/va-loan/"
+            style={{
+              width: '100%',
+              height: '',
+            }}
+          />
+          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+            <a
+              style={{color: 'black'}}
+              href="https://www.realtor.com/advice/guides/va-loan/"
+              target="_blank"
+            >
+              Veterans Guide
+to Home Ownership
+            </a>
+          </p>
+
         </div>
 
       </Grid.Column>
@@ -150,26 +297,24 @@ function Benefit () {
 }
 
 function Morgages (props) {
-  const [state, setState] = useContext (HouseContext);
-  // const [favorite, setfavorite] = useState([])
-  const [searchagent, setsearchagent] = useState ('');
 
   return (
     <div>
-      {/* import {HouseContextProvider} from './context/HouseContext'; */}
-      <HouseContextProvider>
+    
+    
         <div>
-          {/* <SellHeader  /> */}
-          <Grid>
-            {/* <SearchHome /> */}
-            {/* <SellHome /> */}
-            <MorgageRates />
-            <Benefit />
+       
+          <Grid style={{margin:'20px'}}>
+          <h1>Mortgage Calculator</h1>
+  <MorgageCalculator />
+            <h1>Mortgage Tips</h1>
+            <MorgageData />
+            <h1>Mortgage News</h1>
+            <MorgageNews />
           </Grid>
 
         </div>
 
-      </HouseContextProvider>
 
     </div>
   );

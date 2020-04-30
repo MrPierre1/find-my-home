@@ -21,6 +21,29 @@
   /* background-color: aqua; */
 }
 
+input[type="range"] {
+  -webkit-appearance: none;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 5rem;
+  border-color:rgb(25, 52, 172);
+  padding: 3px 3px;
+  background: white;
+
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: rgb(25, 52, 172);
+  color:rgb(25, 52, 172);
+  border-radius: 5rem;
+  border-width: 1px;
+  border-style: solid;
+  height: 0.7em;
+  width: 0.7em;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
