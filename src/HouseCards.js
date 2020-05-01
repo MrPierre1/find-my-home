@@ -26,6 +26,7 @@ import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
   const {state, dispatch} = useContext(HouseContext)
+  const [fav, setfav] = useState('')
 // const [favorite, setfavorite] = useState([])
 
 
@@ -38,6 +39,7 @@ const handleFavorite = () => {
  }
  else{
    dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
+
  }
   
 

@@ -1,10 +1,12 @@
-import React, {useContext, useState, Suspense} from 'react';
+import React, { useContext, useState, Suspense, useEffect } from 'react';
 import './App.css';
 // import HomepageLayout from './HomePageLayout';
 
 import SearchContainer from './SearchContainer';
 import Listings from './Listings';
-import {HouseContextProvider} from './context/HouseContext';
+import { HouseContextProvider } from './context/HouseContext';
+import { HouseContext } from './context/HouseContext';
+
 import {
   Button,
   Container,
@@ -14,6 +16,7 @@ import {
   Icon,
   Image,
   Input,
+  Label,
   List,
   Menu,
   Responsive,
@@ -40,18 +43,22 @@ import test from './assets/mon125009.jpg';
 import Footer from './Footer';
 // import myJsonArray from './Raleigh';
 import Favorites from './Favorites';
+import myJsonArray from './Raleigh.json';
 
-function App () {
-  const Buy = React.lazy (() => import ('./Buy'));
+function App() {
+  const Buy = React.lazy(() => import('./Buy'));
 
-  const [activeItem, setactiveItem] = useState ('');
-  let [setStyle, setsetStyle] = useState ({});
+  const [activeItem, setactiveItem] = useState('');
+  let [setStyle, setsetStyle] = useState({});
+  // const { state, setState } = useContext(HouseContext);
 
-  const handleItemClick = (e, {name}) => {
-    console.log ('name', name);
-    setactiveItem (name);
+  // const favList = state.filter((item) => item.favorite);
+
+  const handleItemClick = (e, { name }) => {
+    console.log('name', name);
+    setactiveItem(name);
     if (name === 'Buy') {
-      setsetStyle ({
+      setsetStyle({
         backgroundColor: 'black',
         color: 'white',
         fontSize: '15px',
@@ -59,21 +66,29 @@ function App () {
     }
     // setsetStyle({backgroundColor:'black', color:'white', fontSize:'15px'})
   };
+  let favList = myJsonArray.filter((item) => item.favorite);
+
+  useEffect(
+    () => {
+      favList = myJsonArray.filter((item) => item.favorite);
+
+      return () => {};
+    },
+    [myJsonArray]
+  );
 
   return (
     <HouseContextProvider>
       {/* <HomepageLayout> */}
-
+      {console.log(favList, 'the fave list', myJsonArray)}
       <Router>
         <Segment
           textAlign="center"
-          style={{minHeight: 0, padding: '1em 10em'}}
+          style={{ minHeight: 0, padding: '1em 10em' }}
           vertical
           inverted
         >
-
           <div>
-
             <Menu widths={5} pointing>
               <Menu.Item
                 name="Buy"
@@ -82,13 +97,15 @@ function App () {
                 as={Link}
                 to="/"
                 style={
-                  activeItem === 'Buy'
-                    ? {
-                        backgroundColor: '#333',
-                        color: 'white',
-                        fontSize: '15px',
-                      }
-                    : {}
+                  activeItem === 'Buy' ? (
+                    {
+                      backgroundColor: '#333',
+                      color: 'white',
+                      fontSize: '15px',
+                    }
+                  ) : (
+                    {}
+                  )
                 }
               >
                 Buy
@@ -101,13 +118,15 @@ function App () {
                 as={Link}
                 to="/sell"
                 style={
-                  activeItem === 'Sell'
-                    ? {
-                        backgroundColor: 'black',
-                        color: 'white',
-                        fontSize: '15px',
-                      }
-                    : {}
+                  activeItem === 'Sell' ? (
+                    {
+                      backgroundColor: 'black',
+                      color: 'white',
+                      fontSize: '15px',
+                    }
+                  ) : (
+                    {}
+                  )
                 }
 
                 // style={setStyle}
@@ -122,13 +141,15 @@ function App () {
                 as={Link}
                 to="/morgages"
                 style={
-                  activeItem === 'Morgages'
-                    ? {
-                        backgroundColor: 'black',
-                        color: 'white',
-                        fontSize: '15px',
-                      }
-                    : {}
+                  activeItem === 'Morgages' ? (
+                    {
+                      backgroundColor: 'black',
+                      color: 'white',
+                      fontSize: '15px',
+                    }
+                  ) : (
+                    {}
+                  )
                 }
 
                 // style={setStyle}
@@ -143,18 +164,23 @@ function App () {
                 as={Link}
                 to="/favorites"
                 style={
-                  activeItem === 'Favorites'
-                    ? {
-                        backgroundColor: 'black',
-                        color: 'white',
-                        fontSize: '15px',
-                      }
-                    : {}
+                  activeItem === 'Favorites' ? (
+                    {
+                      backgroundColor: 'black',
+                      color: 'white',
+                      fontSize: '15px',
+                    }
+                  ) : (
+                    {}
+                  )
                 }
 
                 // style={setStyle}
               >
-                Favorites
+                Favorites<Icon name="heart" />
+                <Label color="red" floating>
+                  {favList.length}
+                </Label>
               </Menu.Item>
             </Menu>
 
@@ -178,10 +204,8 @@ function App () {
       </Container>
     </Menu> */}
           </div>
-
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
-
           <Switch>
             <Route exact path="/" component={Buy}>
               {/* <Buy /> */}
@@ -199,7 +223,6 @@ function App () {
         </Suspense>
       </Router>
       <Footer />
-
     </HouseContextProvider>
   );
 }

@@ -60,17 +60,13 @@ function Listings() {
   }, [state])
   return (
     <div className="">
-      {/* <div>{console.log(state.myJsonArray, 'priceis', { state })}</div> */}
-
       <div style={headerStyle} className="ui huge header center ">
         Featured Listings
         {console.log('the items are here', state)}
       </div>
 
       <Container style={containerStyle}>
-        {/*        
-//       <ul style={{display:'inline'}}>
-//         <li style={{display:'inline-flex'}}> */}
+
 
 <Suspense fallback={<div>Loading...</div>}>
 
