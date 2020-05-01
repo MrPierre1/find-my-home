@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './App.css'
 import { HouseContext } from './context/HouseContext'
 
@@ -25,9 +25,24 @@ import {
 import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
-  const [state, setState] = useContext(HouseContext)
-const [favorite, setfavorite] = useState([])
+  const {state, dispatch} = useContext(HouseContext)
+// const [favorite, setfavorite] = useState([])
 
+
+
+const handleFavorite = () => {
+ if(props.type){
+   console.log('removing a facoere beacuse type is trye', props.type)
+  dispatch({ type: "REMOVE_FAVORITE", payload: props.property.address.streetAddress  });
+
+ }
+ else{
+   dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
+ }
+  
+
+
+};
   const extra = (
     <a>
       <Icon name="user" />
@@ -104,9 +119,17 @@ const [favorite, setfavorite] = useState([])
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
-                <a onClick={ (e) => {setfavorite(e.target.value)}}>
+                {props.type ?  <a onClick={handleFavorite}>
+                  <Icon name="remove" size="big" />
+                </a> :  <a onClick={handleFavorite}>
                   <Icon name="heart outline" size="big" />
-                </a>
+                </a>}
+                {/* <a onClick={handleFavorite}>
+                  <Icon name="heart outline" size="big" />
+                </a> */}
+                {/* <a onClick={ (e) => dispatch({ type: "BEDROOM", payload: bedrooms })}>
+                  <Icon name="remove" size="big" />
+                </a> */}
               </Grid.Column>
             </Grid>
           </>

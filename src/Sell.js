@@ -321,7 +321,9 @@ function Benefit () {
 }
 
 function Sell (props) {
-  const [state, setState] = useContext (HouseContext);
+  // const [state, setState] = useContext (HouseContext);
+  const {state, setState} = useContext (HouseContext);
+
   // const [favorite, setfavorite] = useState([])
   const [searchagent, setsearchagent] = useState ('');
 

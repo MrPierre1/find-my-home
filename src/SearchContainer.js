@@ -123,10 +123,10 @@ function SearchContainer () {
   const [price, setprice] = useState ('');
   const [bedrooms, setbedrooms] = useState ('');
 
-  const [state, setState] = useContext (HouseContext);
+  const {state, setState} = useContext (HouseContext);
 
   const handleSubmit = event => {
-    const data = state.myJsonArray;
+    const data = state;
     event.preventDefault ();
     console.log (
       'city,',

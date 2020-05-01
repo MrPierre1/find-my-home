@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, Suspense } from 'react'
 import './App.css'
 import axios from 'axios'
 
@@ -24,7 +24,9 @@ import test from './assets/test2.jpg'
 import { HouseContext } from './context/HouseContext'
 
 import CarouselMain from './CarouselMain'
-import HouseCards from './HouseCards'
+// import HouseCards from './HouseCards'
+const HouseCards = React.lazy(() => import('./HouseCards'));
+
 
 function Listings() {
   const [showCarousel, setshowCarousel] = useState(false)
@@ -48,9 +50,14 @@ function Listings() {
     marginTop: '50px',
   }
 
-  const [state, setState] = useContext(HouseContext)
-  // const state = state
+  const {state, setState }= useContext(HouseContext)
 
+  useEffect(() => {
+    console.log('datalegnth', state.length)
+    return () => {
+      
+    }
+  }, [state])
   return (
     <div className="">
       {/* <div>{console.log(state.myJsonArray, 'priceis', { state })}</div> */}
@@ -65,9 +72,11 @@ function Listings() {
 //       <ul style={{display:'inline'}}>
 //         <li style={{display:'inline-flex'}}> */}
 
+<Suspense fallback={<div>Loading...</div>}>
+
         <Grid>
           <Grid.Row columns={4}>
-            {state.myJsonArray.map((item, index) => (
+            {state.map((item, index) => (
               <Grid.Column key={item.description}>
                 <HouseCards
                   property={item}
@@ -79,9 +88,9 @@ function Listings() {
           </Grid.Row>
         </Grid>
 
-        {/* 
-//         </li>
-//       </ul> */}
+            </Suspense>
+       
+
       </Container>
     </div>
   )

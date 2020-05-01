@@ -62,7 +62,7 @@ function MorgageCalculator (props) {
           <Grid.Row  style={{paddingBottom:'30px', border:'1px solid black'}} columns={2} >
 
    
-<Grid.Column width={8} centered>
+<Grid.Column width={8}>
 
 <div style={{backgroundColor:'kkred', margin:'0 0 0 150px'}}>
 
