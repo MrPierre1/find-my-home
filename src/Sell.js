@@ -29,6 +29,9 @@ import {HouseContextProvider} from './context/HouseContext';
 import test from './assets/test4.jpg';
 import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
+import SimpleForm from './SimpleForm';
+// import LocationSearchInput from './GoogleSuggest';
+// // import SimpleMap from './SimpleMap';
 
 function SearchHome () {
   const [searchagent, setsearchagent] = useState ('');
@@ -84,7 +87,10 @@ function SearchHome () {
                 Sell Your Home
               </h1>
 
-              <form onSubmit={handleSubmit}>
+              {/* <SimpleMap /> */}
+              {/* <LocationSearchInput /> */}
+              <SimpleForm />
+              {/* <form onSubmit={handleSubmit}>
 
                 <Input
                   style={{width: '50%', marginTop: '70px', padding: '0 0 20px 135px'}}
@@ -100,7 +106,7 @@ function SearchHome () {
                   }
                 />
 
-              </form>
+              </form> */}
 
             </div>
 

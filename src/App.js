@@ -29,6 +29,8 @@ import {
 import Sell from './Sell';
 import Morgages from './Morgages';
 import AppMenu from './AppMenu';
+import HouseMapContainer from './HouseMapContainer'
+import Map from './Map'
 // const Buy = React.lazy(() => import('./Buy'));
 
 import {
@@ -66,21 +68,21 @@ function App() {
     }
     // setsetStyle({backgroundColor:'black', color:'white', fontSize:'15px'})
   };
-  let favList = myJsonArray.filter((item) => item.favorite);
+  // let favList = myJsonArray.filter((item) => item.favorite);
 
-  useEffect(
-    () => {
-      favList = myJsonArray.filter((item) => item.favorite);
+  // useEffect(
+  //   () => {
+  //     favList = myJsonArray.filter((item) => item.favorite);
 
-      return () => {};
-    },
-    [myJsonArray]
-  );
+  //     return () => {};
+  //   },
+  //   [myJsonArray]
+  // );
 
   return (
     <HouseContextProvider>
       {/* <HomepageLayout> */}
-      {console.log(favList, 'the fave list', myJsonArray)}
+      {/* {console.log(favList, 'the fave list', myJsonArray)} */}
       <Router>
         <Segment
           textAlign="center"
@@ -174,35 +176,39 @@ function App() {
                     {}
                   )
                 }
-
-                // style={setStyle}
               >
-                Favorites<Icon name="heart" />
-                <Label color="red" floating>
-                  {favList.length}
-                </Label>
+                Favorites
+          
               </Menu.Item>
+
+
+
+
+              <Menu.Item
+                name="Map"
+                active={activeItem === 'Map'}
+                onClick={handleItemClick}
+                as={Link}
+                to="/map"
+                style={
+                  activeItem === 'Map' ? (
+                    {
+                      backgroundColor: 'black',
+                      color: 'white',
+                      fontSize: '15px',
+                    }
+                  ) : (
+                    {}
+                  )
+                }
+              >
+                Map
+          
+              </Menu.Item>
+
+              
             </Menu>
 
-            {/* <Menu fixed='top' inverted size='massive' style={{height:'100px'}}>
-      <Container>
-        <Menu.Item as='a' header style={{border:'1px red solid', color:'white'}} 
-         className="selected"
-          >
-            
-        <Link to="/">Buy</Link>
-       
-        </Menu.Item>
-        <Menu.Item as='a'
-         name='Sell'
-         active={active === 'Sell'}
-         onClick={handleItemClick}
-         style={{border:'1px white solid', color:'white'}}
-        >
-        <Link to="/sell">Sell</Link>
-        </Menu.Item>
-      </Container>
-    </Menu> */}
           </div>
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
@@ -219,6 +225,10 @@ function App() {
             <Route exact path="/favorites" component={Favorites}>
               {/* <Dashboard /> */}
             </Route>
+
+            <Route exact path="/map" component={Map}>
+            </Route>
+
           </Switch>
         </Suspense>
       </Router>
