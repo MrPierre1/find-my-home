@@ -1,32 +1,24 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, {   useContext,  } from 'react'
 import './App.css'
 import { HouseContext } from './context/HouseContext'
 
 // import HouseCards from './HouseCards'
 
 import {
-  Button,
-  Container,
+
   Card,
-  Divider,
+
   Grid,
-  Header,
+
   Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+
 } from 'semantic-ui-react'
 
 import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
   const {state, dispatch} = useContext(HouseContext)
-  const [fav, setfav] = useState('')
+  // const [fav, setfav] = useState('')
 // const [favorite, setfavorite] = useState([])
 
 
@@ -45,20 +37,20 @@ const handleFavorite = () => {
 
 
 };
-  const extra = (
-    <a>
-      <Icon name="user" />
-      16 Friends
-    </a>
-  )
-  const containerStyle = {
-    margin: '30px',
-  }
-  const submitStyle = {
-    marginTop: '30px',
-    color: 'white',
-    backgroundColor: 'navy',
-  }
+  // const extra = (
+  //   <a>
+  //     <Icon name="user" />
+  //     16 Friends
+  //   </a>
+  // )
+  // const containerStyle = {
+  //   margin: '30px',
+  // }
+  // const submitStyle = {
+  //   marginTop: '30px',
+  //   color: 'white',
+  //   backgroundColor: 'navy',
+  // }
 
   const {
     address,
@@ -86,30 +78,30 @@ const handleFavorite = () => {
             <Grid>
               <Grid.Row columns={2}>
                 <Grid.Column>
-                  <a>
+                  <span>
                     <Icon name="th" />
                     Sqft: {livingArea}
-                  </a>
+                  </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <a>
+                  <span  >
                     <Icon name="car" />
                     Year Built: {yearBuilt}
-                  </a>
+                  </span>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>
                 <Grid.Column>
-                  <a>
+                  <span >
                     <Icon name="bed" />
                     Bedroom: {bedrooms}
-                  </a>
+                  </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <a>
+                  <span >
                     <Icon name="bath" />
                     Bathroom: {bathrooms}
-                  </a>
+                  </span>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -121,9 +113,9 @@ const handleFavorite = () => {
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
-                {props.type ?  <a onClick={handleFavorite}>
+                {props.type ?  <a href="#" onClick={handleFavorite}>
                   <Icon name="remove" size="big" />
-                </a> :  <a onClick={handleFavorite}>
+                </a> :  <a href="#" onClick={handleFavorite}>
                   <Icon name="heart outline" size="big" />
                 </a>}
                 {/* <a onClick={handleFavorite}>

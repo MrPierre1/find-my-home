@@ -1,12 +1,12 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import './App.css';
-import myJsonArray from './Raleigh.js';
+// import myJsonArray from './Raleigh.js';
 import {Container, Input, Responsive, Dropdown} from 'semantic-ui-react';
 import test from './assets/test3.jpg';
 import {HouseContext} from './context/HouseContext';
 
 function SearchContainer () {
-  const [jsonData, setJsonData] = useState (myJsonArray);
+  // const [jsonData, setJsonData] = useState (myJsonArray);
 
   var testing = test;
   const searchStyle = {
@@ -94,28 +94,28 @@ function SearchContainer () {
     },
   ];
 
-  const priceOptions = [
-    {
-      key: '$100,000',
-      text: '$100,000',
-      value: '$100,000',
-    },
-    {
-      key: '$200,000',
-      text: '$200,000',
-      value: '$200,000',
-    },
-    {
-      key: '$300,000',
-      text: '$300,000',
-      value: '$300,000',
-    },
-    {
-      key: '$400,000+',
-      text: '$400,000+',
-      value: '$400,000+',
-    },
-  ];
+  // const priceOptions = [
+  //   {
+  //     key: '$100,000',
+  //     text: '$100,000',
+  //     value: '$100,000',
+  //   },
+  //   {
+  //     key: '$200,000',
+  //     text: '$200,000',
+  //     value: '$200,000',
+  //   },
+  //   {
+  //     key: '$300,000',
+  //     text: '$300,000',
+  //     value: '$300,000',
+  //   },
+  //   {
+  //     key: '$400,000+',
+  //     text: '$400,000+',
+  //     value: '$400,000+',
+  //   },
+  // ];
 
   const [nationState, setnationState] = useState ('');
   const [keywords, setkeywords] = useState ([]);

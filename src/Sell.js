@@ -1,43 +1,33 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {HouseContext} from './context/HouseContext';
+// import {HouseContext} from './context/HouseContext';
 
 // import HouseCards from './HouseCards'
 
 import {
-  Button,
-  Container,
-  Card,
+  
   Divider,
   Grid,
-  Header,
-  Icon,
+  
   Image,
-  Input,
+  
   List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+  
 } from 'semantic-ui-react';
 
-import CarouselMain from './CarouselMain';
-import SellHeader from './SellHeader';
+// import CarouselMain from './CarouselMain';
+// import SellHeader from './SellHeader';
 import {HouseContextProvider} from './context/HouseContext';
 import test from './assets/test4.jpg';
 import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
-import SimpleForm from './SimpleForm';
+// import SimpleForm from './SimpleForm';
 // import LocationSearchInput from './GoogleSuggest';
 // // import SimpleMap from './SimpleMap';
 
 function SearchHome () {
   const [searchagent, setsearchagent] = useState ('');
-  const listStyle = {
-    margin: '50px',
-  };
+ 
 
   const handleSubmit = event => {
     // const data = state.myJsonArray
@@ -89,7 +79,7 @@ function SearchHome () {
 
               {/* <SimpleMap /> */}
               {/* <LocationSearchInput /> */}
-              <SimpleForm />
+              {/* <SimpleForm /> */}
               {/* <form onSubmit={handleSubmit}>
 
                 <Input
@@ -122,7 +112,7 @@ function SellHome () {
     <Grid.Row>
       <Grid.Column>
         <p style={{color: 'black', fontSize: '20px', margin: '-70px 0 0 60px'}}>
-          Or call <a>1-800-000-0000</a> to connect with an agent now
+          Or call <a href="#" >1-800-000-0000</a> to connect with an agent now
         </p>
         <Divider />
       </Grid.Column>
@@ -328,10 +318,10 @@ function Benefit () {
 
 function Sell (props) {
   // const [state, setState] = useContext (HouseContext);
-  const {state, setState} = useContext (HouseContext);
+  // const {state, setState} = useContext (HouseContext);
 
-  // const [favorite, setfavorite] = useState([])
-  const [searchagent, setsearchagent] = useState ('');
+  // // const [favorite, setfavorite] = useState([])
+  // const [searchagent, setsearchagent] = useState ('');
 
   return (
     <div>

@@ -1,45 +1,32 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, } from 'react';
 import './App.css';
-import {HouseContext} from './context/HouseContext';
+// import {HouseContext} from './context/HouseContext';
 
 // import HouseCards from './HouseCards'
 
 import {
-  Button,
-  Container,
-  Card,
-  Divider,
+  
   Grid,
-  Header,
-  Icon,
-  Image,
-  Input,
-  List,
-  Menu,
-  Popup, 
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+ 
+ 
 } from 'semantic-ui-react';
 
-import CarouselMain from './CarouselMain';
-import SellHeader from './SellHeader';
-import {HouseContextProvider} from './context/HouseContext';
-import test from './assets/test4.jpg';
-import image1 from './assets/mon125009.jpg';
-import image2 from './assets/family-at-new-home.jpg';
-import paperworkImage from './assets/paperwork.jpg'
-import veteranImage from './assets/veteran.jpg'
-import cvImage from './assets/cv.jpg'
-import soldMorgage from './assets/soldm.jpg'
-import walletImage from './assets/wallet.jpg'
+// import CarouselMain from './CarouselMain';
+// import SellHeader from './SellHeader';
+// import {HouseContextProvider} from './context/HouseContext';
+// import test from './assets/test4.jpg';
+// import image1 from './assets/mon125009.jpg';
+// import image2 from './assets/family-at-new-home.jpg';
+// import paperworkImage from './assets/paperwork.jpg'
+// import veteranImage from './assets/veteran.jpg'
+// import cvImage from './assets/cv.jpg'
+// import soldMorgage from './assets/soldm.jpg'
+// import walletImage from './assets/wallet.jpg'
 function MorgageCalculator (props) {
   const [loanAmount, setloanAmount] = useState(0)
   const [yearsValue, setyearsValue] = useState(0)
   const [interestRate, setinterestRate] = useState(0)
-  const [monthlyPayment, setmonthlyPayment] = useState(0)
+  // const [monthlyPayment, setmonthlyPayment] = useState(0)
   const paymentTotal = () => {
     const a = loanAmount
     const r = (interestRate / 100)/12

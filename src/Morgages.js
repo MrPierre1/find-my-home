@@ -1,33 +1,22 @@
-import React, {useState, useContext} from 'react';
+import React, {} from 'react';
 import './App.css';
-import {HouseContext} from './context/HouseContext';
+// import {HouseContext} from './context/HouseContext';
 
 // import HouseCards from './HouseCards'
 
 import {
-  Button,
-  Container,
-  Card,
-  Divider,
+   
   Grid,
-  Header,
-  Icon,
+ 
   Image,
-  Input,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+  
 } from 'semantic-ui-react';
 
-import CarouselMain from './CarouselMain';
-import SellHeader from './SellHeader';
-import {HouseContextProvider} from './context/HouseContext';
-import test from './assets/test4.jpg';
-import image1 from './assets/mon125009.jpg';
+// import CarouselMain from './CarouselMain';
+// import SellHeader from './SellHeader';
+// import {HouseContextProvider} from './context/HouseContext';
+// import test from './assets/test4.jpg';
+// import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
 import paperworkImage from './assets/paperwork.jpg'
 import veteranImage from './assets/veteran.jpg'
@@ -70,6 +59,7 @@ function MorgageNews () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/finance/essential-mortgage-faq/"
               target="_blank"
+              rel="noopener noreferrer"
             >
              Mortgage FAQ: Essential Answers to All Your Questions About Home Loans in the Coronavirus Era
             </a>
@@ -108,6 +98,7 @@ function MorgageNews () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/finance/why-does-my-mortgage-keep-getting-sold/"
               target="_blank"
+              rel="noopener noreferrer"
             >
              Why Does My Mortgage Keep Getting Sold?
             </a>
@@ -148,6 +139,7 @@ function MorgageNews () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/finance/hidden-costs-of-self-isolating-at-home-during-coronavirus/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               
 Watch Your Wallet: 7 Hidden Costs of Self-Isolating at Home During Coronavirus
@@ -163,14 +155,8 @@ Watch Your Wallet: 7 Hidden Costs of Self-Isolating at Home During Coronavirus
 }
 
 function MorgageData () {
-  const headerStyle = {
-    fontSize: '25px',
-  };
-  const descriptionStyle = {
-    margin: '15px',
-    fontSize: '20px',
-    lineHeight: '30px',
-  };
+ 
+ 
 
   return (
     <Grid.Row columns={3}>
@@ -204,6 +190,7 @@ function MorgageData () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/finance/common-mortgage-questions/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               5 Mortgage Questions Home Buyers Always Ask—Answered
             </a>
@@ -242,6 +229,7 @@ function MorgageData () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/finance/decoding-the-listings-mortgages-explained/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Mortgage Terms Explained, From ARMs to Points
             </a>
@@ -282,6 +270,7 @@ function MorgageData () {
               style={{color: 'black'}}
               href="https://www.realtor.com/advice/guides/va-loan/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Veterans Guide
 to Home Ownership

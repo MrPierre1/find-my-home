@@ -1,31 +1,22 @@
 import React from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonFirst, ButtonLast, ButtonNext,
-    DotGroup, ImageWithZoom, } from 'pure-react-carousel';
+// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonFirst, ButtonLast, ButtonNext,
+//     DotGroup, ImageWithZoom, } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import {
     Button,
-    Container,
+
     Divider,
     Grid,
-    Header,
-    Icon,
+    
     Image,
-    List,
-    Menu,
+   
     Modal,
-    Responsive,
-    Segment,
-    Sidebar,
-    Visibility,
+   
   } from 'semantic-ui-react'
 
 function CarouselMain (props){
-  const imgStyle = {
-    width:'100%', 
-    height: '50%',
-    objectFit:'cover', 
-  }
+  
   const submitStyle = {
     // marginTop: '30px',
     color: 'white',

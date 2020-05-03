@@ -1,35 +1,25 @@
-import React, { useContext, useState, Suspense, useEffect } from 'react';
+import React, {  useState, Suspense} from 'react';
 import './App.css';
 // import HomepageLayout from './HomePageLayout';
 
-import SearchContainer from './SearchContainer';
-import Listings from './Listings';
+// import SearchContainer from './SearchContainer';
+// import Listings from './Listings';
 import { HouseContextProvider } from './context/HouseContext';
-import { HouseContext } from './context/HouseContext';
+// import { HouseContext } from './context/HouseContext';
 
 import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  Input,
-  Label,
-  List,
+ 
   Menu,
-  Responsive,
+ 
   Segment,
-  Sidebar,
-  Visibility,
+
 } from 'semantic-ui-react';
 
 // import Buy from './Buy'
 import Sell from './Sell';
 import Morgages from './Morgages';
-import AppMenu from './AppMenu';
-import HouseMapContainer from './HouseMapContainer'
+// import AppMenu from './AppMenu';
+// import HouseMapContainer from './HouseMapContainer'
 import Map from './Map'
 // const Buy = React.lazy(() => import('./Buy'));
 
@@ -38,14 +28,14 @@ import {
   Switch,
   Route,
   Link,
-  NavLink,
+  // NavLink,
 } from 'react-router-dom';
-import MyHomes from './Sell';
-import test from './assets/mon125009.jpg';
+// import MyHomes from './Sell';
+// import test from './assets/mon125009.jpg';
 import Footer from './Footer';
 // import myJsonArray from './Raleigh';
 import Favorites from './Favorites';
-import myJsonArray from './Raleigh.json';
+// import myJsonArray from './Raleigh.json';
 
 function App() {
   const Buy = React.lazy(() => import('./Buy'));

@@ -1,54 +1,44 @@
-import React, { useState, useContext, useEffect, Suspense } from 'react'
+import React, {  useContext, useEffect, Suspense } from 'react'
 import './App.css'
-import axios from 'axios'
+// import axios from 'axios'
 
 import {
-  Button,
+   
   Container,
-  Card,
-  Divider,
+   
   Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+ 
 } from 'semantic-ui-react'
-import test from './assets/test2.jpg'
+// import test from './assets/test2.jpg'
 // import myJsonArray from './Raleigh.js';
 import { HouseContext } from './context/HouseContext'
 
-import CarouselMain from './CarouselMain'
+// import CarouselMain from './CarouselMain'
 // import HouseCards from './HouseCards'
 const HouseCards = React.lazy(() => import('./HouseCards'));
 
 
 function Listings() {
-  const [showCarousel, setshowCarousel] = useState(false)
-  const [jsonData, setJsonData] = useState('myJsonArray')
+  // const [showCarousel, setshowCarousel] = useState(false)
+  // const [jsonData, setJsonData] = useState('myJsonArray')
 
   const containerStyle = {
     margin: '20px',
   }
-  const submitStyle = {
-    marginTop: '30px',
-    color: 'white',
-    backgroundColor: 'navy',
-  }
+  // const submitStyle = {
+  //   marginTop: '30px',
+  //   color: 'white',
+  //   backgroundColor: 'navy',
+  // }
   const headerStyle = {
     // paddingTop: '50px',
     marginTop: '20px',
     textAlign:'center'
   }
 
-  const cardContainerStyle = {
-    marginTop: '50px',
-  }
+  // const cardContainerStyle = {
+  //   marginTop: '50px',
+  // }
 
   const {state, setState }= useContext(HouseContext)
 
