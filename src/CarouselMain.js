@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonFirst, ButtonLast, ButtonNext,
 //     DotGroup, ImageWithZoom, } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -22,6 +22,12 @@ function CarouselMain (props){
     color: 'white',
     backgroundColor: 'navy',
   }
+  useEffect(() => {
+    console.log('props documented', props)
+    return () => {
+      
+    }
+  }, [])
 
     return (
         

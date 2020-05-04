@@ -1,5 +1,6 @@
 import React, { useState, useReducer, createContext } from 'react';
 import myJsonArray from './../Raleigh.json';
+import houseJson from './../newHouseData.json'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -28,8 +29,8 @@ const DispatchContext = React.createContext();
 const FavoriteContext = createContext([]);
 
 const HouseContextProvider = (props) => {
-  // const [state, setstate] = useState({myJsonArray});
-  const [state, dispatch] = useReducer(reducer, myJsonArray);
+  // const [state, setstate] = useState({houseJson});
+  const [state, dispatch] = useReducer(reducer, houseJson);
   return (
     <HouseContext.Provider value={{ state, dispatch }}>
       {props.children}
@@ -39,4 +40,4 @@ const HouseContextProvider = (props) => {
 
 export { HouseContext, HouseContextProvider, DispatchContext, FavoriteContext };
 
-// export const HouseContext = React.createContext(myJsonArray);
+// export const HouseContext = React.createContext(houseJson);
