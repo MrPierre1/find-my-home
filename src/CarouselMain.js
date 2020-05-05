@@ -32,7 +32,9 @@ function CarouselMain (props){
     return (
         
         <Modal trigger={<Button style={submitStyle} className="ui fluid button" >More Info</Button>} closeIcon>
-    <Modal.Header>{'Select a Photo'}</Modal.Header>
+    <Modal.Header>{}</Modal.Header>
+    {console.log('get it here data',props.propertyInfo)}
+    
     <Modal.Content image>
     
     <Grid centered columns={1}>

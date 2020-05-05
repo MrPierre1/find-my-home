@@ -1,4 +1,4 @@
-import React, {  useState, Suspense} from 'react';
+import React, {  useState, Suspense, useEffect} from 'react';
 import './App.css';
 // import HomepageLayout from './HomePageLayout';
 
@@ -28,6 +28,7 @@ import {
   Switch,
   Route,
   Link,
+  useLocation
   // NavLink,
 } from 'react-router-dom';
 // import MyHomes from './Sell';
@@ -45,7 +46,7 @@ function App() {
   // const { state, setState } = useContext(HouseContext);
 
   // const favList = state.filter((item) => item.favorite);
-
+  // let location = useLocation()
   const handleItemClick = (e, { name }) => {
     console.log('name', name);
     setactiveItem(name);
@@ -68,7 +69,16 @@ function App() {
   //   },
   //   [myJsonArray]
   // );
+  // let location = useLocation();
+  
 
+useEffect(() => {
+  // console.log('this is the location object', activeItem)
+  // console.log(location.pathname);
+  return () => {
+    
+  }
+}, [])
   return (
     <HouseContextProvider>
       {/* <HomepageLayout> */}
@@ -80,9 +90,10 @@ function App() {
           vertical
           inverted
         >
-          <div>
-            <Menu widths={5} pointing>
+          <div className="divMenu">
+            <Menu widths={5} pointing className="menuParent">
               <Menu.Item
+              className="menuItem"
                 name="Buy"
                 active={activeItem === 'Buy'}
                 onClick={handleItemClick}
@@ -174,27 +185,7 @@ function App() {
 
 
 
-              <Menu.Item
-                name="Map"
-                active={activeItem === 'Map'}
-                onClick={handleItemClick}
-                as={Link}
-                to="/map"
-                style={
-                  activeItem === 'Map' ? (
-                    {
-                      backgroundColor: 'black',
-                      color: 'white',
-                      fontSize: '15px',
-                    }
-                  ) : (
-                    {}
-                  )
-                }
-              >
-                Map
-          
-              </Menu.Item>
+            
 
               
             </Menu>
@@ -216,8 +207,6 @@ function App() {
               {/* <Dashboard /> */}
             </Route>
 
-            <Route exact path="/map" component={Map}>
-            </Route>
 
           </Switch>
         </Suspense>

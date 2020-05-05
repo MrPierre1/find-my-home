@@ -175,7 +175,7 @@ function SearchContainer () {
       <div style={searchStyle}>
         <form onSubmit={handleSubmit}>
 
-          <Container text style={containerStyle}>
+          <Container text className="searchContainer">
 
             <div>
 
@@ -188,6 +188,7 @@ function SearchContainer () {
                   <div className="column">
                     <div className="ui focus input">
                       <Input
+                      className="keytext"
                         type="text"
                         value={keywords}
                         onChange={e => setkeywords (e.target.value)}
@@ -195,7 +196,7 @@ function SearchContainer () {
                       />
                     </div>
                   </div>
-                  <div className="column">
+                  {/* <div className="column">
                     <Dropdown
                       name="city"
                       onChange={(e, data) => setcity ({city: data.value})}
@@ -217,7 +218,7 @@ function SearchContainer () {
                       selection
                       options={stateOptions}
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -249,6 +250,7 @@ function SearchContainer () {
                   <div className="ui focus input column">
                     <Input
                       type="number"
+                      size="mini"
                       value={price}
                       onChange={(e, data) => setprice (e.target.value)}
                       placeholder="Max Price (Any)"

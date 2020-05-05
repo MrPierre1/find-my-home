@@ -68,6 +68,7 @@ const handleFavorite = () => {
       <div></div>
 
       <Card
+      className="houseCards"
         style={{ margin: '30px', height: '500px' }}
         image={photos[0]}
         header={`$${price}`}
@@ -107,7 +108,7 @@ const handleFavorite = () => {
             </Grid>
             <Grid columns="equal">
               <Grid.Column width={12}>
-                <CarouselMain key={photos[0]} propertyData={photos} />
+                <CarouselMain key={photos[0]}  propertyData={photos} />
               </Grid.Column>
               <Grid.Column
                 width={4}

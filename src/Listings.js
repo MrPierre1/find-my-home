@@ -63,7 +63,7 @@ function Listings() {
         <Grid>
           <Grid.Row columns={4}>
             {state.map((item, index) => (
-              <Grid.Column key={item.description}>
+              <Grid.Column key={item.description} className="housecards">
                 <HouseCards
                   property={item}
                   index={index}

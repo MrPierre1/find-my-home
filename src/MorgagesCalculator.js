@@ -63,7 +63,7 @@ function MorgageCalculator (props) {
           min={0}
           color='green'
           step={1000}
-          max={100000}
+          max={500000}
           value={loanAmount}
           onChange={(e) => setloanAmount( e.target.value)}
         />
