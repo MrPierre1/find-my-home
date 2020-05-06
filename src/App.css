@@ -19,6 +19,13 @@
 .MaptoggleButtons {
   margin: 3px auto auto 43%;
 }
+.autocompleteInput{
+  width: 75%;
+}
+
+.autocompleteInput input{
+  border-radius: 25px;
+}
 
 
 @media only screen and (max-width: 767px) {

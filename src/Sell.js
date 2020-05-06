@@ -21,6 +21,7 @@ import {HouseContextProvider} from './context/HouseContext';
 import test from './assets/test4.jpg';
 import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
+import SearchAutoComplete from './SearchAutoComplete'
 // import SimpleForm from './SimpleForm';
 // import LocationSearchInput from './GoogleSuggest';
 // // import SimpleMap from './SimpleMap';
@@ -76,6 +77,8 @@ function SearchHome () {
               >
                 Sell Your Home
               </h1>
+
+              <SearchAutoComplete />
 
               {/* <SimpleMap /> */}
               {/* <LocationSearchInput /> */}
