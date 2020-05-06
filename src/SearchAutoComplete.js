@@ -6,20 +6,29 @@ import ContactRealtor from './ContactRealtor';
  
 function SearchAutoComplete() {
   const [status, setstatus] = useState(false)
-const showrealtor = () => {
+  const [data, setdata] = useState('')
+
+const showrealtor = (data) => {
+  console.log('data is in search', data)
     setstatus(true)
+    setdata(data)
 }
 return (
   <div>
   <div className="autocompleteInput">
     <GooglePlacesAutocomplete
-      onSelect={showrealtor}
+      onSelect={(data) => showrealtor(data)}
       placeholder="Enter Your Address"
+      
     //   onSelect{showrealtor}
     />
   </div>
 
-<ContactRealtor status={status}/>
+{status && 
+
+<ContactRealtor status={status} address={data.description}/>
+
+}
   </div>
 
 );
