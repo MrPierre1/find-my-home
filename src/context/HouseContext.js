@@ -1,23 +1,43 @@
-
-import React, {useState} from 'react'
+import React, { useState, useReducer, createContext } from 'react';
 import myJsonArray from './../Raleigh.json';
+import houseJson from './../newHouseData.json'
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'FAVORITE':
+      let index = state.findIndex(
+        (x) => x.address.streetAddress == action.payload
+      );
+      state[index]['favorite'] = true;
+      return state;
 
+    case 'REMOVE_FAVORITE':
+      state = state.filter(
+        (house) => house.address.streetAddress !== action.payload
+      );
 
-const HouseContext = React.createContext([{}, () => {}]);
+      console.log('found data to remove', state, 'favriote house');
+      return state;
 
+    default:
+      return state;
+  }
+}
 
+const HouseContext = createContext();
+const DispatchContext = React.createContext();
+const FavoriteContext = createContext([]);
 
 const HouseContextProvider = (props) => {
-  const [state, setState] = useState({myJsonArray});
+  // const [state, setstate] = useState({houseJson});
+  const [state, dispatch] = useReducer(reducer, houseJson);
   return (
-    <HouseContext.Provider value={[state, setState]}>
+    <HouseContext.Provider value={{ state, dispatch }}>
       {props.children}
     </HouseContext.Provider>
   );
-}
+};
 
-export { HouseContext, HouseContextProvider };
+export { HouseContext, HouseContextProvider, DispatchContext, FavoriteContext };
 
-  
-  // export const HouseContext = React.createContext(myJsonArray);
+// export const HouseContext = React.createContext(houseJson);

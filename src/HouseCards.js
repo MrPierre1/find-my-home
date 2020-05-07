@@ -1,47 +1,56 @@
-import React, { useState, useContext } from 'react'
+import React, {   useContext,  } from 'react'
 import './App.css'
 import { HouseContext } from './context/HouseContext'
 
 // import HouseCards from './HouseCards'
 
 import {
-  Button,
-  Container,
+
   Card,
-  Divider,
+
   Grid,
-  Header,
+
   Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-  Dropdown,
+
 } from 'semantic-ui-react'
 
 import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
-  const [state, setState] = useContext(HouseContext)
-const [favorite, setfavorite] = useState([])
+  const {state, dispatch} = useContext(HouseContext)
+  // const [fav, setfav] = useState('')
+// const [favorite, setfavorite] = useState([])
 
-  const extra = (
-    <a>
-      <Icon name="user" />
-      16 Friends
-    </a>
-  )
-  const containerStyle = {
-    margin: '30px',
-  }
-  const submitStyle = {
-    marginTop: '30px',
-    color: 'white',
-    backgroundColor: 'navy',
-  }
+
+
+const handleFavorite = () => {
+ if(props.type){
+   console.log('removing a facoere beacuse type is trye', props.type)
+  dispatch({ type: "REMOVE_FAVORITE", payload: props.property.address.streetAddress  });
+
+ }
+ else{
+   dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
+
+ }
+  
+
+
+};
+  // const extra = (
+  //   <a>
+  //     <Icon name="user" />
+  //     16 Friends
+  //   </a>
+  // )
+  // const containerStyle = {
+  //   margin: '30px',
+  // }
+  // const submitStyle = {
+  //   marginTop: '30px',
+  //   color: 'white',
+  //   backgroundColor: 'navy',
+  // }
 
   const {
     address,
@@ -59,6 +68,7 @@ const [favorite, setfavorite] = useState([])
       <div></div>
 
       <Card
+      className="houseCards"
         style={{ margin: '30px', height: '500px' }}
         image={photos[0]}
         header={`$${price}`}
@@ -69,44 +79,52 @@ const [favorite, setfavorite] = useState([])
             <Grid>
               <Grid.Row columns={2}>
                 <Grid.Column>
-                  <a>
+                  <span>
                     <Icon name="th" />
                     Sqft: {livingArea}
-                  </a>
+                  </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <a>
+                  <span  >
                     <Icon name="car" />
                     Year Built: {yearBuilt}
-                  </a>
+                  </span>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={2}>
                 <Grid.Column>
-                  <a>
+                  <span >
                     <Icon name="bed" />
                     Bedroom: {bedrooms}
-                  </a>
+                  </span>
                 </Grid.Column>
                 <Grid.Column>
-                  <a>
+                  <span >
                     <Icon name="bath" />
                     Bathroom: {bathrooms}
-                  </a>
+                  </span>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
             <Grid columns="equal">
               <Grid.Column width={12}>
-                <CarouselMain key={photos[0]} propertyData={photos} />
+                <CarouselMain key={photos[0]}  propertyData={photos} />
               </Grid.Column>
               <Grid.Column
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
-                <a onClick={ (e) => {setfavorite(e.target.value)}}>
+                {props.type ?  <a href="#" onClick={handleFavorite}>
+                  <Icon name="remove" size="big" />
+                </a> :  <a href="#" onClick={handleFavorite}>
                   <Icon name="heart outline" size="big" />
-                </a>
+                </a>}
+                {/* <a onClick={handleFavorite}>
+                  <Icon name="heart outline" size="big" />
+                </a> */}
+                {/* <a onClick={ (e) => dispatch({ type: "BEDROOM", payload: bedrooms })}>
+                  <Icon name="remove" size="big" />
+                </a> */}
               </Grid.Column>
             </Grid>
           </>

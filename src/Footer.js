@@ -1,20 +1,16 @@
 import React from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {
-  Button,
+
   Container,
-  Divider,
+ 
   Grid,
-  Header,
+
   Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
+
   Segment,
-  Sidebar,
-  Visibility,
+ 
 } from 'semantic-ui-react';
 // import HomepageLayout from './HomePageLayout';
 

@@ -1,37 +1,31 @@
-import React, {useContext, useState} from 'react';
+import React, { useState} from 'react';
 import './App.css';
-// import HomepageLayout from './HomePageLayout';
-import Footer from './Footer';
-import SearchContainer from './SearchContainer';
-import Listings from './Listings';
+// // import HomepageLayout from './HomePageLayout';
+// import Footer from './Footer';
+// import SearchContainer from './SearchContainer';
+// import Listings from './Listings';
 import {HouseContextProvider} from './context/HouseContext';
 import {
   Button,
-  Container,
-  Divider,
+   
   Grid,
-  Header,
-  Icon,
+  
   Input,
   Image,
   List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
+  
 } from 'semantic-ui-react';
 
 // import { HouseContextProvider } from "./context/HouseContext";
 
 
-import Buy from './Buy';
-import Sell from './Sell';
-import AppMenu from './AppMenu';
+// import Buy from './Buy';
+// import Sell from './Sell';
+// import AppMenu from './AppMenu';
 
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import MyHomes from './Sell';
-// import myJsonArray from './Raleigh';
+// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+// import MyHomes from './Sell';
+// // import myJsonArray from './Raleigh';
 
 import test from './assets/test4.jpg';
 import image1 from './assets/mon125009.jpg';
@@ -121,7 +115,7 @@ function SellHeader () {
 
               <Grid.Row>
                   <Grid.Column>
-                    <p  style={{color: 'black', fontSize: '20px', margin:'-20px 0 0 60px'}}>Or call <a>1-800-000-0000</a> to connect with an agent now</p>
+                    <p  style={{color: 'black', fontSize: '20px', margin:'-20px 0 0 60px'}}>Or call <a href="">1-800-000-0000</a> to connect with an agent now</p>
                   </Grid.Column>
                 </Grid.Row>
 

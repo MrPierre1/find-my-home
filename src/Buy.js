@@ -1,31 +1,64 @@
-import React, {useContext, Suspense} from 'react';
+import React, { Suspense, useState, useContex, useEffect, useContext} from 'react';
 import './App.css';
-// import HomepageLayout from './HomePageLayout';
-import Footer from './Footer'
-// import SearchContainer from './SearchContainer'
-import Listings from './Listings'
-import { HouseContextProvider } from "./context/HouseContext";
+import Map from './Map'
+ import { Button} from 'semantic-ui-react'
+ 
+import { HouseContext } from "./context/HouseContext";
+
 const SearchContainer = React.lazy(() => import('./SearchContainer'));
 
-// import myJsonArray from './Raleigh';
- 
+const Listings = React.lazy(() => import('./Listings'));
+
+
+
+
+
 
 
 
 function Home() {
+
+  const {state, setState }= useContext(HouseContext)
+  const [isListingShown, setisListingShown] = useState(true)
+  const [isMapShown, setisMapShown] = useState(false)
+
+  const toggleList = () =>{
+    setisListingShown(true)
+    setisMapShown(false)
+  }
+
+  const toggleMap = () =>{
+    setisListingShown(false)
+    setisMapShown(true)
+  }
   return (
+   
     <div className="Home">
-       <HouseContextProvider>
-      {/* <HomepageLayout> */}
+ 
       <Suspense fallback={<div>Loading...</div>}>
 
 
     
       <SearchContainer/> 
-      <Listings />
+      <div className="MaptoggleButtons">
+ 
+    <Button onClick={toggleList} secondary>Show List</Button>
+    <Button onClick={toggleMap} primary>Show Map</Button>
+  </div>
+ 
+    <div>
+ 
+        {isListingShown &&  <Listings /> }
+       
+
+       {isMapShown && <Map houseData={state} /> }  
+
+     
+      </div>
+     
       
        </Suspense>
-      </HouseContextProvider>
+   
     </div>
   );
 }
