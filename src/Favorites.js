@@ -12,6 +12,7 @@ import { HouseContext } from './context/HouseContext';
 import {
 
   Grid,
+  Header
  
 } from 'semantic-ui-react';
 import HouseCards from './HouseCards';
@@ -41,7 +42,13 @@ function Favorites(props) {
               </Grid.Column>
             ))
           ) : (
-            <div> There are no favorites in your list</div>
+            <div style = {{height:'200px', margin: '200px'}}> 
+
+<Header as='h2'>
+
+    <Header.Content>There are no favorites in your list, Go back to <code>Buy</code> and click the heart icon</Header.Content>
+  </Header>
+            </div>
           )}
         </Grid.Row>
       </Grid>

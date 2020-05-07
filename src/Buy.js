@@ -19,8 +19,8 @@ const Listings = React.lazy(() => import('./Listings'));
 function Home() {
 
   const {state, setState }= useContext(HouseContext)
-  const [isListingShown, setisListingShown] = useState(false)
-  const [isMapShown, setisMapShown] = useState(true)
+  const [isListingShown, setisListingShown] = useState(true)
+  const [isMapShown, setisMapShown] = useState(false)
 
   const toggleList = () =>{
     setisListingShown(true)

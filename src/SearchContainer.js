@@ -35,31 +35,6 @@ function SearchContainer () {
     paddingTop: '30px',
   };
 
-  const stateOptions = [
-    {
-      key: 'NC',
-      text: 'NC',
-      value: 'NC',
-    },
-    {
-      key: 'CA',
-      text: 'CA',
-      value: 'CA',
-    },
-  ];
-
-  const cityOptions = [
-    {
-      key: 'Raleigh',
-      text: 'Raleigh',
-      value: 'Raleigh',
-    },
-    {
-      key: 'Los Angeles',
-      text: 'Los Angeles',
-      value: 'Los Angeles',
-    },
-  ];
 
   const bedroomsOptions = [
     {
@@ -94,28 +69,6 @@ function SearchContainer () {
     },
   ];
 
-  // const priceOptions = [
-  //   {
-  //     key: '$100,000',
-  //     text: '$100,000',
-  //     value: '$100,000',
-  //   },
-  //   {
-  //     key: '$200,000',
-  //     text: '$200,000',
-  //     value: '$200,000',
-  //   },
-  //   {
-  //     key: '$300,000',
-  //     text: '$300,000',
-  //     value: '$300,000',
-  //   },
-  //   {
-  //     key: '$400,000+',
-  //     text: '$400,000+',
-  //     value: '$400,000+',
-  //   },
-  // ];
 
   const [nationState, setnationState] = useState ('');
   const [keywords, setkeywords] = useState ([]);
@@ -126,11 +79,10 @@ function SearchContainer () {
   const {state, setState} = useContext (HouseContext);
 
   const handleSubmit = event => {
-    const data = state;
+    var data = state;
     event.preventDefault ();
     console.log (
-      'city,',
-      city,
+     
       'price, ',
       price,
       'keywords,',
@@ -138,36 +90,25 @@ function SearchContainer () {
       'bed',
       bedrooms,
       'state',
-      nationState,
-      'and it data',
-      state.myJsonArray
+      // state.myJsonArray
     );
-    var filter = [{bedrooms}, {city}, {price}, {nationState}];
-    var result = [];
-    for (var prop in filter) {
-      var filtered = filter[prop];
-      // console.log('filtereddata ', filtered.bedrooms, typeof filtered.bed)
-      // if(filter.bedrooms == 4){
-      //   console.log(typeof filtered.bedrooms, 'bedrooms is here', 'AND HERE',  filtered.bedrooms)
-      // }
 
-      data.find ((obj, index) => {
-        var myFilter = Object.values (filtered);
-        var propertyData = Object.values (obj);
-        if (propertyData.includes (myFilter[0])) {
-          result.push (data[index]);
-        }
-        // if()
-      });
-    }
-    console.log ('myresult', result, result.length);
 
-    setState ({myJsonArray: result});
-    setcity ({});
-    setprice ({});
-    setkeywords ([]);
-    setbedrooms ({});
-    setnationState ({});
+  
+  if(!price){
+    setprice(0)
+  }
+ 
+  if(!bedrooms){ 
+    setbedrooms(0)
+  }
+
+  var result = state.filter(function(v, i) {
+    return ((v["price"] >= price ) && v.bedrooms >=bedrooms);
+  })
+
+  data = result
+  console.log(result)
   };
 
   return (
@@ -196,29 +137,7 @@ function SearchContainer () {
                       />
                     </div>
                   </div>
-                  {/* <div className="column">
-                    <Dropdown
-                      name="city"
-                      onChange={(e, data) => setcity ({city: data.value})}
-                      placeholder="City"
-                      fluid
-                      clearable
-                      selection
-                      options={cityOptions}
-                    />
-                  </div>
-                  <div className="column">
-                    <Dropdown
-                      name="nationState"
-                      onChange={(e, data) =>
-                        setnationState ({nationState: data.value})}
-                      placeholder="State (All)"
-                      fluid
-                      clearable
-                      selection
-                      options={stateOptions}
-                    />
-                  </div> */}
+                 
                 </div>
               </div>
 
@@ -236,16 +155,7 @@ function SearchContainer () {
                       options={bedroomsOptions}
                     />
                   </div>
-                  {/* <div className="column">
-              <Dropdown
-               name="price"
-               onChange={(e, data) => setprice ({price: data.value})}
-                placeholder="Max Price (Any)"
-                fluid
-                selection
-                options={priceOptions}
-              />
-            </div> */}
+                 
 
                   <div className="ui focus input column">
                     <Input

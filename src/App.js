@@ -72,13 +72,7 @@ function App() {
   // let location = useLocation();
   
 
-useEffect(() => {
-  // console.log('this is the location object', activeItem)
-  // console.log(location.pathname);
-  return () => {
-    
-  }
-}, [])
+ 
   return (
     <HouseContextProvider>
       {/* <HomepageLayout> */}
@@ -93,7 +87,7 @@ useEffect(() => {
           <div className="divMenu">
             <Menu widths={5} pointing className="menuParent">
               <Menu.Item
-              className="menuItem"
+               className="menuItem"
                 name="Buy"
                 active={activeItem === 'Buy'}
                 onClick={handleItemClick}
