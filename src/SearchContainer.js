@@ -5,7 +5,7 @@ import {Container, Input, Responsive, Dropdown} from 'semantic-ui-react';
 import test from './assets/test3.jpg';
 import {HouseContext} from './context/HouseContext';
 
-function SearchContainer () {
+function SearchContainer (props) {
   // const [jsonData, setJsonData] = useState (myJsonArray);
 
   var testing = test;
@@ -106,6 +106,7 @@ function SearchContainer () {
   var result = state.filter(function(v, i) {
     return ((v["price"] >= price ) && v.bedrooms >=bedrooms);
   })
+  props.stateChange(result)
 
   data = result
   console.log(result)
@@ -148,7 +149,7 @@ function SearchContainer () {
                       name="bedrooms"
                       size="mini"
                       onChange={(e, data) => setbedrooms (Number (data.value))}
-                      placeholder="Bedrooms(All)"
+                      placeholder="Bedrooms(Min)"
                       fluid
                       clearable
                       selection

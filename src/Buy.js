@@ -21,6 +21,8 @@ function Home() {
   const {state, setState }= useContext(HouseContext)
   const [isListingShown, setisListingShown] = useState(true)
   const [isMapShown, setisMapShown] = useState(false)
+  const [changeData, setchangeData] = useState(state)
+
 
   const toggleList = () =>{
     setisListingShown(true)
@@ -39,7 +41,7 @@ function Home() {
 
 
     
-      <SearchContainer/> 
+      <SearchContainer stateData={state} stateChange={setchangeData}/> 
       <div className="MaptoggleButtons">
  
     <Button onClick={toggleList} secondary>Show List</Button>
@@ -48,10 +50,10 @@ function Home() {
  
     <div>
  
-        {isListingShown &&  <Listings /> }
-       
+        {isListingShown &&  <Listings houseData={changeData} /> }
+       {console.log('changed data', changeData)}
 
-       {isMapShown && <Map houseData={state} /> }  
+       {isMapShown && <Map houseData={changeData} /> }  
 
      
       </div>

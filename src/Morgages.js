@@ -294,8 +294,8 @@ function Morgages (props) {
         <div>
        
           <Grid style={{margin:'20px'}}>
-          <h1>Mortgage Calculator</h1>
-  <MorgageCalculator />
+          {/* <h1>Mortgage Calculator</h1>
+  <MorgageCalculator /> */}
             <h1>Mortgage Tips</h1>
             <MorgageData />
             <h1>Mortgage News</h1>

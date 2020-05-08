@@ -1,8 +1,8 @@
-import React, {   useContext,  } from 'react'
+import React, {   useContext, useState  } from 'react'
 import './App.css'
 import { HouseContext } from './context/HouseContext'
-
-// import HouseCards from './HouseCards'
+import houseJson from './newHouseData.json'
+ 
 
 import {
 
@@ -18,7 +18,7 @@ import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
   const {state, dispatch} = useContext(HouseContext)
-  // const [fav, setfav] = useState('')
+  const [fav, setfav] = useState(false)
 // const [favorite, setfavorite] = useState([])
 
 
@@ -31,26 +31,12 @@ const handleFavorite = () => {
  }
  else{
    dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
-
+   setfav(true)
  }
   
 
 
 };
-  // const extra = (
-  //   <a>
-  //     <Icon name="user" />
-  //     16 Friends
-  //   </a>
-  // )
-  // const containerStyle = {
-  //   margin: '30px',
-  // }
-  // const submitStyle = {
-  //   marginTop: '30px',
-  //   color: 'white',
-  //   backgroundColor: 'navy',
-  // }
 
   const {
     address,
@@ -114,10 +100,11 @@ const handleFavorite = () => {
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
+
                 {props.type ?  <a href="#" onClick={handleFavorite}>
                   <Icon name="remove" size="big" />
                 </a> :  <a href="#" onClick={handleFavorite}>
-                  <Icon name="heart outline" size="big" />
+                  <Icon name={fav ? 'heart' : 'heart outline'} size="big" />
                 </a>}
                 {/* <a onClick={handleFavorite}>
                   <Icon name="heart outline" size="big" />

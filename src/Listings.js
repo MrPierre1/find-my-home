@@ -18,7 +18,7 @@ import { HouseContext } from './context/HouseContext'
 const HouseCards = React.lazy(() => import('./HouseCards'));
 
 
-function Listings() {
+function Listings(props) {
   // const [showCarousel, setshowCarousel] = useState(false)
   // const [jsonData, setJsonData] = useState('myJsonArray')
 
@@ -40,19 +40,19 @@ function Listings() {
   //   marginTop: '50px',
   // }
 
-  const {state, setState }= useContext(HouseContext)
+  // const {state, setState }= useContext(HouseContext)
 
-  useEffect(() => {
-    console.log('datalegnth', state.length)
-    return () => {
+  // useEffect(() => {
+  //   console.log('datalegnth', state.length)
+  //   return () => {
       
-    }
-  }, [state])
+  //   }
+  // }, [state])
   return (
     <div className="">
       <div style={headerStyle} className="ui huge header center ">
         Featured Listings
-        {console.log('the items are here', state)}
+        {/* {console.log('the items are here', state)} */}
       </div>
 
       <Container style={containerStyle}>
@@ -62,7 +62,8 @@ function Listings() {
 
         <Grid>
           <Grid.Row columns={4}>
-            {state.map((item, index) => (
+            {console.log('cchange data is in listing', props.changeData)}
+            {props.houseData.map((item, index) => (
               <Grid.Column key={item.description} className="housecards">
                 <HouseCards
                   property={item}
