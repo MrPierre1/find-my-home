@@ -1,37 +1,19 @@
-import React, {} from 'react';
+import React from 'react';
 import './App.css';
-// import {HouseContext} from './context/HouseContext';
 
-// import HouseCards from './HouseCards'
+import { Grid, Image } from 'semantic-ui-react';
 
-import {
-   
-  Grid,
- 
-  Image,
-  
-} from 'semantic-ui-react';
-
-// import CarouselMain from './CarouselMain';
-// import SellHeader from './SellHeader';
-// import {HouseContextProvider} from './context/HouseContext';
-// import test from './assets/test4.jpg';
-// import image1 from './assets/mon125009.jpg';
 import image2 from './assets/family-at-new-home.jpg';
-import paperworkImage from './assets/paperwork.jpg'
-import veteranImage from './assets/veteran.jpg'
-import cvImage from './assets/cv.jpg'
-import soldMorgage from './assets/soldm.jpg'
-import walletImage from './assets/wallet.jpg'
-import MorgageCalculator from './MorgagesCalculator';
+import paperworkImage from './assets/paperwork.jpg';
+import veteranImage from './assets/veteran.jpg';
+import cvImage from './assets/cv.jpg';
+import soldMorgage from './assets/soldm.jpg';
+import walletImage from './assets/wallet.jpg';
 
-function MorgageNews () {
+function MorgageNews() {
   return (
     <Grid.Row columns={3}>
-
-   
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -54,23 +36,21 @@ function MorgageNews () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/finance/essential-mortgage-faq/"
               target="_blank"
               rel="noopener noreferrer"
             >
-             Mortgage FAQ: Essential Answers to All Your Questions About Home Loans in the Coronavirus Era
+              Mortgage FAQ: Essential Answers to All Your Questions About Home
+              Loans in the Coronavirus Era
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
 
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -93,25 +73,20 @@ function MorgageNews () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/finance/why-does-my-mortgage-keep-getting-sold/"
               target="_blank"
               rel="noopener noreferrer"
             >
-             Why Does My Mortgage Keep Getting Sold?
+              Why Does My Mortgage Keep Getting Sold?
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
 
-
-
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -134,35 +109,27 @@ function MorgageNews () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/finance/hidden-costs-of-self-isolating-at-home-during-coronavirus/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              
-Watch Your Wallet: 7 Hidden Costs of Self-Isolating at Home During Coronavirus
+              Watch Your Wallet: 7 Hidden Costs of Self-Isolating at Home During
+              Coronavirus
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
-
     </Grid.Row>
   );
 }
 
-function MorgageData () {
- 
- 
-
+function MorgageData() {
   return (
     <Grid.Row columns={3}>
-
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -185,9 +152,9 @@ function MorgageData () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/finance/common-mortgage-questions/"
               target="_blank"
               rel="noopener noreferrer"
@@ -195,13 +162,10 @@ function MorgageData () {
               5 Mortgage Questions Home Buyers Always Ask—Answered
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
 
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -224,9 +188,9 @@ function MorgageData () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/finance/decoding-the-listings-mortgages-explained/"
               target="_blank"
               rel="noopener noreferrer"
@@ -234,15 +198,10 @@ function MorgageData () {
               Mortgage Terms Explained, From ARMs to Points
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
 
-
-
       <Grid.Column>
-
         <div
           style={{
             width: '100%',
@@ -265,46 +224,33 @@ function MorgageData () {
               height: '',
             }}
           />
-          <p style={{fontSize: '20px', margin: 'auto 30px'}}>
+          <p style={{ fontSize: '20px', margin: 'auto 30px' }}>
             <a
-              style={{color: 'black'}}
+              style={{ color: 'black' }}
               href="https://www.realtor.com/advice/guides/va-loan/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Veterans Guide
-to Home Ownership
+              Veterans Guide to Home Ownership
             </a>
           </p>
-
         </div>
-
       </Grid.Column>
-
     </Grid.Row>
   );
 }
 
-function Morgages (props) {
-
+function Morgages(props) {
   return (
     <div>
-    
-    
-        <div>
-       
-          <Grid style={{margin:'20px'}}>
-          {/* <h1>Mortgage Calculator</h1>
-  <MorgageCalculator /> */}
-            <h1>Mortgage Tips</h1>
-            <MorgageData />
-            <h1>Mortgage News</h1>
-            <MorgageNews />
-          </Grid>
-
-        </div>
-
-
+      <div>
+        <Grid style={{ margin: '20px' }}>
+          <h1>Mortgage Tips</h1>
+          <MorgageData />
+          <h1>Mortgage News</h1>
+          <MorgageNews />
+        </Grid>
+      </div>
     </div>
   );
 }

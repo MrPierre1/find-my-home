@@ -1,13 +1,11 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
-// import myJsonArray from './Raleigh.js';
-import {Container, Input, Responsive, Dropdown} from 'semantic-ui-react';
+
+import { Container, Input, Responsive, Dropdown } from 'semantic-ui-react';
 import test from './assets/test3.jpg';
-import {HouseContext} from './context/HouseContext';
+import { HouseContext } from './context/HouseContext';
 
-function SearchContainer (props) {
-  // const [jsonData, setJsonData] = useState (myJsonArray);
-
+function SearchContainer(props) {
   var testing = test;
   const searchStyle = {
     background: `url(${testing})`,
@@ -34,7 +32,6 @@ function SearchContainer (props) {
     color: 'white',
     paddingTop: '30px',
   };
-
 
   const bedroomsOptions = [
     {
@@ -69,20 +66,17 @@ function SearchContainer (props) {
     },
   ];
 
+  const [keywords, setkeywords] = useState([]);
 
-  const [nationState, setnationState] = useState ('');
-  const [keywords, setkeywords] = useState ([]);
-  const [city, setcity] = useState ('');
-  const [price, setprice] = useState ('');
-  const [bedrooms, setbedrooms] = useState ('');
+  const [price, setprice] = useState('');
+  const [bedrooms, setbedrooms] = useState('');
 
-  const {state, setState} = useContext (HouseContext);
+  const { state, setState } = useContext(HouseContext);
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     var data = state;
-    event.preventDefault ();
-    console.log (
-     
+    event.preventDefault();
+    console.log(
       'price, ',
       price,
       'keywords,',
@@ -91,63 +85,50 @@ function SearchContainer (props) {
       bedrooms,
       'state',
       typeof keywords
-      // state.myJsonArray
     );
 
+    if (!price) {
+      setprice('');
+    }
 
-  
-  if(!price){
-    setprice('')
-  }
- 
-  if(!bedrooms){ 
-    setbedrooms('')
-  }
-  if (!keywords) {
-    setkeywords('')
-  }
+    if (!bedrooms) {
+      setbedrooms('');
+    }
+    if (!keywords) {
+      setkeywords('');
+    }
 
-  //  var keywordString = keywords.split(",");
-  //  console.log('kestring' ,keywordString)
-  
-   
+    var result = state.filter(function(house, i) {
+      return house['price'] >= price && house.bedrooms >= bedrooms;
+    });
+    props.stateChange(result);
 
-  var result = state.filter(function(house, i) {
-    return ((house["price"] >= price ) && house.bedrooms >=bedrooms);
-  })
-  props.stateChange(result)
-
-  data = result
-  console.log(result)
+    data = result;
+    console.log(result);
   };
 
   return (
     <Responsive>
       <div style={searchStyle}>
         <form onSubmit={handleSubmit}>
-
           <Container text className="searchContainer">
-
             <div>
-
               <div style={headerStyle} className="ui huge header ">
                 Property Search Just Got Easier
               </div>
               <div className="ui three column grid">
                 <div className="row">
-
                   <div className="column">
                     <div className="ui focus input">
                       <Input
-                      className="keytext"
+                        className="keytext"
                         type="text"
                         value={keywords}
-                        onChange={e => setkeywords (e.target.value)}
+                        onChange={(e) => setkeywords(e.target.value)}
                         placeholder="Keywords (Pool, Garage, Etc.)"
                       />
                     </div>
                   </div>
-                 
                 </div>
               </div>
 
@@ -157,7 +138,7 @@ function SearchContainer (props) {
                     <Dropdown
                       name="bedrooms"
                       size="mini"
-                      onChange={(e, data) => setbedrooms (Number (data.value))}
+                      onChange={(e, data) => setbedrooms(Number(data.value))}
                       placeholder="Bedrooms(Min)"
                       fluid
                       clearable
@@ -165,18 +146,16 @@ function SearchContainer (props) {
                       options={bedroomsOptions}
                     />
                   </div>
-                 
 
                   <div className="ui focus input column">
                     <Input
                       type="number"
                       size="mini"
                       value={price}
-                      onChange={(e, data) => setprice (e.target.value)}
+                      onChange={(e, data) => setprice(e.target.value)}
                       placeholder="Max Price (Any)"
                     />
                   </div>
-
                 </div>
               </div>
 
