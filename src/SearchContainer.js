@@ -90,21 +90,30 @@ function SearchContainer (props) {
       'bed',
       bedrooms,
       'state',
+      typeof keywords
       // state.myJsonArray
     );
 
 
   
   if(!price){
-    setprice(0)
+    setprice('')
   }
  
   if(!bedrooms){ 
-    setbedrooms(0)
+    setbedrooms('')
+  }
+  if (!keywords) {
+    setkeywords('')
   }
 
-  var result = state.filter(function(v, i) {
-    return ((v["price"] >= price ) && v.bedrooms >=bedrooms);
+  //  var keywordString = keywords.split(",");
+  //  console.log('kestring' ,keywordString)
+  
+   
+
+  var result = state.filter(function(house, i) {
+    return ((house["price"] >= price ) && house.bedrooms >=bedrooms);
   })
   props.stateChange(result)
 

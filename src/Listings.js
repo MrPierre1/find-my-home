@@ -51,7 +51,7 @@ function Listings(props) {
   return (
     <div className="">
       <div style={headerStyle} className="ui huge header center ">
-        Featured Listings
+        Featured Listings ( {props.houseData.length} Houses )
         {/* {console.log('the items are here', state)} */}
       </div>
 
@@ -62,14 +62,18 @@ function Listings(props) {
 
         <Grid>
           <Grid.Row columns={4}>
-            {console.log('cchange data is in listing', props.changeData)}
+            {/* {console.log('cchange data is in listing', props.changeData)} */}
             {props.houseData.map((item, index) => (
-              <Grid.Column key={item.description} className="housecards">
-                <HouseCards
+              <Grid.Column key={item.photos[0]} className="housecards">
+                {/* {console.log(index,'otem photos', item)} */}
+                {item.photos[0].indexOf("https://maps.googleapis.com/maps/api/staticmap?") >= 0 ? "" : 
+                   <HouseCards
                   property={item}
                   index={index}
-                  image={'item.photos[0]'}
-                />
+                  image={item.photos[0]}
+                /> 
+               }
+             
               </Grid.Column>
             ))}
           </Grid.Row>

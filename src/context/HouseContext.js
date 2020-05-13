@@ -1,6 +1,11 @@
 import React, { useState, useReducer, createContext } from 'react';
 import myJsonArray from './../Raleigh.json';
-import houseJson from './../newHouseData.json'
+// import houseJson from './../newHouseData.json'
+import houseJson from './../RaleighLongList.json'
+// import houseJson from './../Raleigh.json'
+
+
+
 
 function reducer(state, action) {
   switch (action.type) {

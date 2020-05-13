@@ -22,18 +22,13 @@ function CarouselMain (props){
     color: 'white',
     backgroundColor: 'navy',
   }
-  useEffect(() => {
-    console.log('props documented', props)
-    return () => {
-      
-    }
-  }, [])
+
 
     return (
         
         <Modal trigger={<Button style={submitStyle} className="ui fluid button" >More Info</Button>} closeIcon>
     <Modal.Header>{}</Modal.Header>
-    {console.log('get it here data',props.propertyInfo)}
+    {/* {console.log('get it here data',props.propertyInfo)} */}
     
     <Modal.Content image>
     

@@ -33,25 +33,31 @@ function Home() {
     setisListingShown(false)
     setisMapShown(true)
   }
+
   return (
    
     <div className="Home">
  
-      <Suspense fallback={<div>Loading...</div>}>
+  
 
 
     
       <SearchContainer stateData={state} stateChange={setchangeData}/> 
-      <div className="MaptoggleButtons">
+      
+      <Suspense fallback={<div>Loading...</div>}>
+
  
+      <div className="MaptoggleButtons">
+     
     <Button onClick={toggleList} secondary>Show List</Button>
+    {/* {console.log('stat is this-------', state, 'changedata is this********', changeData)} */}
     <Button onClick={toggleMap} primary>Show Map</Button>
   </div>
  
     <div>
  
         {isListingShown &&  <Listings houseData={changeData} /> }
-       {console.log('changed data', changeData)}
+       {/* {console.log('changed data', changeData)} */}
 
        {isMapShown && <Map houseData={changeData} /> }  
 
