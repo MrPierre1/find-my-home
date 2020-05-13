@@ -1,8 +1,6 @@
 import React, {   useContext, useState  } from 'react'
 import './App.css'
 import { HouseContext } from './context/HouseContext'
-import houseJson from './newHouseData.json'
- 
 
 import {
 
@@ -19,9 +17,6 @@ import CarouselMain from './CarouselMain'
 function HouseCards(props) {
   const {state, dispatch} = useContext(HouseContext)
   const [fav, setfav] = useState(false)
-// const [favorite, setfavorite] = useState([])
-
-
 
 const handleFavorite = () => {
  if(props.type){
@@ -106,12 +101,7 @@ const handleFavorite = () => {
                 </a> :  <a href="#" onClick={handleFavorite}>
                   <Icon name={fav ? 'heart' : 'heart outline'} size="big" />
                 </a>}
-                {/* <a onClick={handleFavorite}>
-                  <Icon name="heart outline" size="big" />
-                </a> */}
-                {/* <a onClick={ (e) => dispatch({ type: "BEDROOM", payload: bedrooms })}>
-                  <Icon name="remove" size="big" />
-                </a> */}
+            
               </Grid.Column>
             </Grid>
           </>
