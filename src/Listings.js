@@ -18,7 +18,7 @@ import { HouseContext } from './context/HouseContext'
 const HouseCards = React.lazy(() => import('./HouseCards'));
 
 
-function Listings() {
+function Listings(props) {
   // const [showCarousel, setshowCarousel] = useState(false)
   // const [jsonData, setJsonData] = useState('myJsonArray')
 
@@ -40,19 +40,19 @@ function Listings() {
   //   marginTop: '50px',
   // }
 
-  const {state, setState }= useContext(HouseContext)
+  // const {state, setState }= useContext(HouseContext)
 
-  useEffect(() => {
-    console.log('datalegnth', state.length)
-    return () => {
+  // useEffect(() => {
+  //   console.log('datalegnth', state.length)
+  //   return () => {
       
-    }
-  }, [state])
+  //   }
+  // }, [state])
   return (
     <div className="">
       <div style={headerStyle} className="ui huge header center ">
-        Featured Listings
-        {console.log('the items are here', state)}
+        Featured Listings ( {props.houseData.length} Houses )
+        {/* {console.log('the items are here', state)} */}
       </div>
 
       <Container style={containerStyle}>
@@ -62,13 +62,18 @@ function Listings() {
 
         <Grid>
           <Grid.Row columns={4}>
-            {state.map((item, index) => (
-              <Grid.Column key={item.description} className="housecards">
-                <HouseCards
+            {/* {console.log('cchange data is in listing', props.changeData)} */}
+            {props.houseData.map((item, index) => (
+              <Grid.Column key={item.photos[0]} className="housecards">
+                {/* {console.log(index,'otem photos', item)} */}
+                {item.photos[0].indexOf("https://maps.googleapis.com/maps/api/staticmap?") >= 0 ? "" : 
+                   <HouseCards
                   property={item}
                   index={index}
-                  image={'item.photos[0]'}
-                />
+                  image={item.photos[0]}
+                /> 
+               }
+             
               </Grid.Column>
             ))}
           </Grid.Row>

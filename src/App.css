@@ -20,7 +20,8 @@
   margin: 3px auto auto 43%;
 }
 .autocompleteInput{
-  width: 75%;
+  width: 70%;
+  margin-right: 10px;
 }
 
 .autocompleteInput input{

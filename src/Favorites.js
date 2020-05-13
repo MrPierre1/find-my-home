@@ -26,7 +26,7 @@ function Favorites(props) {
 
   return (
     <div className="Popup">
-      <Grid divided columns="equal">
+      <Grid  columns="equal">
         {console.log('afvortie s', state)}
 
         <Grid.Row columns={4}>

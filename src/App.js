@@ -1,5 +1,6 @@
 import React, {  useState, Suspense, useEffect} from 'react';
 import './App.css';
+
 // import HomepageLayout from './HomePageLayout';
 
 // import SearchContainer from './SearchContainer';
@@ -37,6 +38,11 @@ import Footer from './Footer';
 // import myJsonArray from './Raleigh';
 import Favorites from './Favorites';
 // import myJsonArray from './Raleigh.json';
+
+import * as Sentry from '@sentry/browser';
+
+
+Sentry.init({dsn: "https://3c95d99a75f24455aa5d0c2b07eacc1c@o363281.ingest.sentry.io/5239579"});
 
 function App() {
   const Buy = React.lazy(() => import('./Buy'));
@@ -88,13 +94,13 @@ function App() {
             <Menu widths={5} pointing className="menuParent">
               <Menu.Item
                className="menuItem"
-                name="Buy"
-                active={activeItem === 'Buy'}
+                name="buy"
+                active={activeItem === 'buy'}
                 onClick={handleItemClick}
                 as={Link}
-                to="/"
+                to="/buy"
                 style={
-                  activeItem === 'Buy' ? (
+                  activeItem === 'buy' ? (
                     {
                       backgroundColor: '#333',
                       color: 'white',
@@ -188,7 +194,7 @@ function App() {
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/" component={Buy}>
+            <Route exact path="/buy" component={Buy}>
               {/* <Buy /> */}
             </Route>
             <Route exact path="/sell" component={Sell}>
