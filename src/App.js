@@ -16,6 +16,8 @@ import {
   Route,
   Link,
   useLocation,
+  Redirect,
+  
 } from 'react-router-dom';
 
 import Footer from './Footer';
@@ -50,6 +52,7 @@ function App() {
   return (
     <HouseContextProvider>
       <Router>
+     
         <Segment
           textAlign="center"
           style={{ minHeight: 0, padding: '1em 10em' }}
@@ -147,7 +150,10 @@ function App() {
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/buy" component={Buy} />
+          <Route exact path="/">
+    <Redirect to="/buy" />
+</Route>
+            <Route  path="/buy" component={Buy} />
             <Route exact path="/sell" component={Sell} />
             <Route exact path="/morgages" component={Morgages} />
             <Route exact path="/favorites" component={Favorites} />
