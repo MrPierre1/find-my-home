@@ -14,7 +14,7 @@ function Favorites (props) {
   return (
     <div className="Popup">
       <Grid columns="equal">
-        {console.log ('afvortie s', state)}
+    
 
         <Grid.Row columns={4}>
           {favList.length

@@ -34,8 +34,11 @@ Sentry.init({
 function App() {
   const Buy = React.lazy(() => import('./Buy'));
 
-  const [activeItem, setactiveItem] = useState('');
+  const [activeItem, setactiveItem] = useState(window.location.pathname.substring(1, 14));
+  const [shortUrl, setshortUrl] = useState(window.location.pathname.substring(1, 14))
   let [setStyle, setsetStyle] = useState({});
+
+ 
 
   const handleItemClick = (e, { name }) => {
     console.log('name', name);
@@ -49,10 +52,24 @@ function App() {
     }
   };
 
+
+ 
+  
+ useEffect(() => {
+   console.log('im in useeft')
+  if(!activeItem){
+    setactiveItem(shortUrl) // /sell  remove slash in front of path
+}
+   return () => {
+     
+   }
+ }, [])
+
   return (
     <HouseContextProvider>
+
       <Router>
-     
+     {console.log('activeitem is here', activeItem, 'locatiomn',  window.location.pathname)}
         <Segment
           textAlign="center"
           style={{ minHeight: 0, padding: '1em 10em' }}
@@ -84,13 +101,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Sell"
-                active={activeItem === 'Sell'}
+                name="sell"
+                active={activeItem === 'sell'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/sell"
                 style={
-                  activeItem === 'Sell' ? (
+                  activeItem === 'sell' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -105,13 +122,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Morgages"
-                active={activeItem === 'Morgages'}
+                name="morgages"
+                active={activeItem === 'morgages'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/morgages"
                 style={
-                  activeItem === 'Morgages' ? (
+                  activeItem === 'morgages' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -126,13 +143,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Favorites"
-                active={activeItem === 'Favorites'}
+                name="favorites"
+                active={activeItem === 'favorites'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/favorites"
                 style={
-                  activeItem === 'Favorites' ? (
+                  activeItem === 'favorites' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -151,8 +168,8 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
           <Route exact path="/">
-    <Redirect to="/buy" />
-</Route>
+              <Redirect to="/buy" />
+          </Route>
             <Route  path="/buy" component={Buy} />
             <Route exact path="/sell" component={Sell} />
             <Route exact path="/morgages" component={Morgages} />
