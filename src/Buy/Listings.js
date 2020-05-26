@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
-import './App.css';
+import './../App.css';
 
 import { Container, Grid } from 'semantic-ui-react';
 
-const HouseCards = React.lazy(() => import('./HouseCards'));
+const HouseCards = React.lazy(() => import('./../HouseCards'));
 
 function Listings(props) {
   const containerStyle = {
@@ -48,4 +48,4 @@ function Listings(props) {
   );
 }
 
-export default Listings;
+export default React.memo(Listings);

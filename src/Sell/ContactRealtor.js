@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import './App.css'
-import realtor1 from './assets/realtor1.jpg'
-import realtor2 from './assets/realtor2.jpg'
-import realtor3 from './assets/realtor3.jpeg'
+import './../App.css'
+import realtor1 from './../assets/realtor1.jpg'
+import realtor2 from './../assets/realtor2.jpg'
+import realtor3 from './../assets/realtor3.jpeg'
 
 import {
   Button,

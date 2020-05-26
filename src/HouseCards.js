@@ -31,20 +31,20 @@ const {
 
  const [fav, setfav] = useState(favorite)
 
- // when unfav then call dispatch to update whole object fav status 
+ 
 const handleFavorite = () => {
  if(props.type){
-  //  console.log('removing a facoere beacuse type is trye', props.type)
+  
   dispatch({ type: "REMOVE_FAVORITE", payload: props.property.address.streetAddress  });
 
  }
  else if (!fav) {
-  //  console.log('doing things with unfav', fav, 'and favorite', favorite)
+  
    dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
    setfav(!fav)
  }
  else if (fav){
-  // console.log('doing things fav')
+ 
   dispatch({ type: "NOTFAVORITE", payload: props.property.address.streetAddress  });
   setfav(!fav)
 }
@@ -106,7 +106,7 @@ const handleFavorite = () => {
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
-                {/* {console.log(fav, 'favirotes', favorite)} */}
+               
                 {props.type ?  <span onClick={handleFavorite}>
                   <Icon name="remove" size="big" />
                 </span> :  <span onClick={handleFavorite}>

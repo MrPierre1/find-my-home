@@ -1,21 +1,15 @@
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { useState, Suspense, useEffect, createRef } from 'react';
 import './App.css';
-
 import { HouseContextProvider } from './context/HouseContext';
-
-import { Menu, Segment } from 'semantic-ui-react';
-
-import Sell from './Sell';
+import { Menu, Segment, Sticky } from 'semantic-ui-react';
+import Sell from './Sell/Sell';
 import Morgages from './Morgages';
-
-import Map from './Map';
-
+ 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useLocation,
   Redirect,
   
 } from 'react-router-dom';
@@ -32,16 +26,13 @@ Sentry.init({
 });
 
 function App() {
-  const Buy = React.lazy(() => import('./Buy'));
-
+  const Buy = React.lazy(() => import('./Buy/Buy'));
+  const contextRef = createRef()
   const [activeItem, setactiveItem] = useState(window.location.pathname.substring(1, 14));
-  const [shortUrl, setshortUrl] = useState(window.location.pathname.substring(1, 14))
+  const [shortUrl, ] = useState(window.location.pathname.substring(1, 14))
   let [setStyle, setsetStyle] = useState({});
-
  
-
   const handleItemClick = (e, { name }) => {
-    console.log('name', name);
     setactiveItem(name);
     if (name === 'Buy') {
       setsetStyle({
@@ -56,9 +47,8 @@ function App() {
  
   
  useEffect(() => {
-   console.log('im in useeft')
   if(!activeItem){
-    setactiveItem(shortUrl) // /sell  remove slash in front of path
+    setactiveItem(shortUrl)
 }
    return () => {
      
@@ -69,15 +59,15 @@ function App() {
     <HouseContextProvider>
 
       <Router>
-     {console.log('activeitem is here', activeItem, 'locatiomn',  window.location.pathname)}
         <Segment
           textAlign="center"
           style={{ minHeight: 0, padding: '1em 10em' }}
           vertical
           inverted
         >
-          <div className="divMenu">
-            <Menu widths={5} pointing className="menuParent">
+          <div className="divMenu" ref={contextRef}>
+          <Sticky context={contextRef}>
+            <Menu widths={5} pointing attached='top' className="menuParent">
               <Menu.Item
                 className="menuItem"
                 name="buy"
@@ -163,10 +153,11 @@ function App() {
                 Favorites
               </Menu.Item>
             </Menu>
+            </Sticky>
           </div>
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
+          <Switch attached='bottom'>
           <Route exact path="/">
               <Redirect to="/buy" />
           </Route>

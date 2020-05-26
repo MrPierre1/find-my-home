@@ -1,24 +1,24 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   withGoogleMap,
   GoogleMap,
   Marker,
   InfoWindow,
 } from 'react-google-maps';
-import houseIcon from './assets/homeIcon.png';
+import houseIcon from './../assets/homeIcon.png';
 import {
   Icon,
   Header,
-  Container,
+ 
   Grid,
   Image,
-  Segment,
+ 
 } from 'semantic-ui-react';
 
-import { HouseContext } from './context/HouseContext';
-import CarouselMain from './CarouselMain';
+import { HouseContext } from './../context/HouseContext';
+import CarouselMain from './../CarouselMain';
 function Map(props) {
-  const { state, dispatch } = useContext(HouseContext);
+  const { dispatch } = useContext(HouseContext);
 
   const [isOpen, setisOpen] = useState({
     open: false,
@@ -28,22 +28,21 @@ function Map(props) {
   });
 
   const handleToggleOpen = (data) => {
-    console.log('data', data);
 
     if (typeof data === 'number') {
-      console.log('data is number', data, typeof data);
+    
       setisOpen({ open: true, index: data });
     }
 
     if (typeof data === 'object') {
-      console.log('data is object', typeof data);
+
       setisOpen({ carouselOpen: true, marker: data });
     }
   };
 
   const handleFavorite = (marker) => {
     if (props.type) {
-      console.log('removing a facoere beacuse type is trye', props.type);
+
       dispatch({
         type: 'REMOVE_FAVORITE',
         payload: marker.address.streetAddress,
@@ -84,7 +83,6 @@ function Map(props) {
                 markerData={marker}
               >
                 <div>
-                  {console.log('data exist someer', isOpen, marker.photos[0])}
 
                   <Image src={marker.photos[1]} size="medium" centered />
                   <Grid columns="equal" padded>
@@ -130,4 +128,4 @@ function Map(props) {
     </div>
   );
 }
-export default Map;
+export default React.memo(Map);

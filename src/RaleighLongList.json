@@ -55,61 +55,6 @@
 
 {
   "address": {
-    "streetAddress": "4700 Easthampton Dr",
-    "city": "Raleigh",
-    "state": "NC",
-    "zipcode": "27604",
-    "neighborhood": "Northeast Raleigh",
-    "community": null,
-    "subdivision": null
-  },
-  "bedrooms": 4,
-  "bathrooms": 4,
-  "price": 300000,
-  "yearBuilt": 1994,
-  "longitude": -78.560769,
-  "latitude": 35.815469,
-  "description": "Basement Home w/Oversized Garage & MovieRm! Spacious Kitchen w/Crown Molding, Raised Panel Cabs, Lazy Susan, Tile Backsplash, Under Cab Lighting, Double Bowl SS Sink, Chrome Pull-out Faucet, Smooth Top Range, Built-in MW & DW! Bright Breakfast Rm! 1st Floor Master Bdrm w/Crown Molding & Built-in Bookshelves! Master Bath w/Crown Molding, His & Her Vanities, Linen Closet, Garden Tub & Sep Shower! FamRm w/Crown Molding, Gas Log FP & Ceiling Fan w/Light! 2ndFlr BonusRm & 3rd Flr FlexRm! Lg Deck & Fenced Yard!",
-  "livingArea": 3111,
-  "currency": "USD",
-  "url": "https://www.zillow.com/homedetails/4700-Easthampton-Dr-Raleigh-NC-27604/6526124_zpid/",
-  "photos": [
-    "https://photos.zillowstatic.com/p_f/ISjbssnykgbshf0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISrpked4qnitkt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISzfq27pul98fu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISr9oqoiqd1bfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISjji2vxlfawkt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISj3me6cm5tdfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISbdgqcrh72zkt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISbxj2o5ixkgfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/IS37eeukdzt1lt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/IS3rhq5zdpcjfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISv0c2ce9rl4lt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISvkfens9h4mfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISnu9qt75jd7lt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISfo7eb11b5alt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISned25m59wofu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/IS7i52tuw2xclt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISf8bqmf11orfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISzb3qaosuoflt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/IS729e49xsfufu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISr51eshomgilt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISzv62m2tk7xfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISrp4q3woczzfu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISjzy1abke8llt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISzbfbjqk2654u0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISjj2elpk4r2gu0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISbtwpr4g60olt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISbt8b078ehd4u0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/IS3nud9ybyrqlt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISvgs1rr7qjtlt0000000000.jpg",
-    "https://photos.zillowstatic.com/p_f/ISzjldv8r6ed1u0000000000.jpg"
-  ]
-},
-
-
-{
-  "address": {
     "streetAddress": "3500 Crofton Ct",
     "city": "Raleigh",
     "state": "NC",
