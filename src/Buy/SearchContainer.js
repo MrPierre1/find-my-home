@@ -70,31 +70,26 @@ function SearchContainer (props) {
     var result = state;
 
     if (bedrooms) {
-      console.log('result', result);
+    
       result = result.filter(function(house, i) {
         return house.bedrooms == bedrooms;
       });
-
-      console.log('updated bed', result);
     }
 
     if (price) {
       result = result.filter(function(house, i) {
         return house['price'] >= price;
       });
-      console.log('updated price', result);
+ 
     }
 
     if (keywords.length) {
       keywords = keywords.toLowerCase();
       result = result.filter(function(house, i) {
         var findDesc = house['description'].toLowerCase();
-        console.log(keywords, 'lowercare', findDesc);
+     
         if (findDesc.includes(keywords))
-          console.log('%c text exist', 'background: red; color: white;');
-
         return findDesc.includes(keywords);
-        // return house['description'] >= price
       });
     }
 
