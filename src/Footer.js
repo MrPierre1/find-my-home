@@ -14,7 +14,7 @@ function Footer() {
           <Grid divided inverted stackable columns="equal">
             <Grid.Row style={{ margin: '20px 0px 0 180px' }}>
               <Grid.Column>
-                <a href="https://twitter.com/explore" style={anchorStyle}>
+                <a href="https://twitter.com/explore" target='_blank' style={anchorStyle}>
                   <Icon.Group size="large">
                     <Icon name="twitter" />
                     <Icon corner name="add" />
@@ -23,7 +23,7 @@ function Footer() {
                 </a>
               </Grid.Column>
               <Grid.Column>
-                <a href="https://github.com/MrPierre1/" style={anchorStyle}>
+                <a href="https://github.com/MrPierre1/" target='_blank' style={anchorStyle}>
                   <Icon.Group size="large">
                     <Icon name="github" />
                     <Icon corner name="add" />
@@ -32,7 +32,7 @@ function Footer() {
                 </a>
               </Grid.Column>
               <Grid.Column>
-                <a href="https://youtube.com" style={{ color: 'white' }}>
+                <a href="https://youtube.com" target='_blank' style={{ color: 'white' }}>
                   <Icon.Group size="large">
                     <Icon name="youtube play" />
                     <Icon corner name="add" />

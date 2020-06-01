@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
-import './App.css';
+import './../App.css';
 
 import { Divider, Grid, Image, List } from 'semantic-ui-react';
 
-import { HouseContextProvider } from './context/HouseContext';
-import test from './assets/test4.jpg';
-import image1 from './assets/mon125009.jpg';
-import image2 from './assets/family-at-new-home.jpg';
+import { HouseContextProvider } from '../context/HouseContext';
+import test from './../assets/test4.jpg';
+import image1 from './../assets/mon125009.jpg';
+import image2 from './../assets/family-at-new-home.jpg';
 import SearchAutoComplete from './SearchAutoComplete';
 
 function SearchHome() {
-  const [searchagent, setsearchagent] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('city,', searchagent);
-  };
-
+ 
   return (
     <React.Fragment>
       <Grid.Row

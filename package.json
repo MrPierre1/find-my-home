@@ -8,9 +8,12 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "expect": "^26.0.1",
     "faker": "^4.1.0",
     "google-map-react": "^1.1.7",
     "lodash": "^4.17.15",
+    "protractor": "^7.0.0",
+    "puppeteer": "^3.1.0",
     "pure-react-carousel": "^1.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,13 +24,15 @@
     "react-places-autocomplete": "^7.2.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-testing-library": "^8.0.1",
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "avatest": "ava"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ava": "^3.8.2"
   }
 }

@@ -16,34 +16,45 @@ import CarouselMain from './CarouselMain'
 
 function HouseCards(props) {
   const {state, dispatch} = useContext(HouseContext)
-  const [fav, setfav] = useState(false)
-
-const handleFavorite = () => {
- if(props.type){
-   console.log('removing a facoere beacuse type is trye', props.type)
-  dispatch({ type: "REMOVE_FAVORITE", payload: props.property.address.streetAddress  });
-
- }
- else{
-   dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
-   setfav(true)
- }
-  
-
-
-};
-
-  const {
+ 
+const {
     address,
     bedrooms,
     bathrooms,
     price,
     photos,
+    favorite,
     livingArea,
     description,
     yearBuilt,
   } = props.property
 
+ const [fav, setfav] = useState(favorite)
+
+ 
+const handleFavorite = () => {
+ if(props.type){
+  
+  dispatch({ type: "REMOVE_FAVORITE", payload: props.property.address.streetAddress  });
+
+ }
+ else if (!fav) {
+  
+   dispatch({ type: "FAVORITE", payload: props.property.address.streetAddress  });
+   setfav(!fav)
+ }
+ else if (fav){
+ 
+  dispatch({ type: "NOTFAVORITE", payload: props.property.address.streetAddress  });
+  setfav(!fav)
+}
+ 
+  
+
+
+};
+
+  
   return (
     <div>
       <div></div>
@@ -95,12 +106,13 @@ const handleFavorite = () => {
                 width={4}
                 style={{ marginTop: '5px', marginLeft: '-5px' }}
               >
-
-                {props.type ?  <a href="#" onClick={handleFavorite}>
+               
+                {props.type ?  <span onClick={handleFavorite}>
                   <Icon name="remove" size="big" />
-                </a> :  <a href="#" onClick={handleFavorite}>
+                </span> :  <span onClick={handleFavorite}>
                   <Icon name={fav ? 'heart' : 'heart outline'} size="big" />
-                </a>}
+                </span>}
+            
             
               </Grid.Column>
             </Grid>

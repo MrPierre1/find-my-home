@@ -1,21 +1,17 @@
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { useState, Suspense, useEffect, createRef } from 'react';
 import './App.css';
-
 import { HouseContextProvider } from './context/HouseContext';
-
-import { Menu, Segment } from 'semantic-ui-react';
-
-import Sell from './Sell';
+import { Menu, Segment, Sticky } from 'semantic-ui-react';
+import Sell from './Sell/Sell';
 import Morgages from './Morgages';
-
-import Map from './Map';
-
+ 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useLocation,
+  Redirect,
+  
 } from 'react-router-dom';
 
 import Footer from './Footer';
@@ -30,13 +26,13 @@ Sentry.init({
 });
 
 function App() {
-  const Buy = React.lazy(() => import('./Buy'));
-
-  const [activeItem, setactiveItem] = useState('');
+  const Buy = React.lazy(() => import('./Buy/Buy'));
+  const contextRef = createRef()
+  const [activeItem, setactiveItem] = useState(window.location.pathname.substring(1, 14));
+  const [shortUrl, ] = useState(window.location.pathname.substring(1, 14))
   let [setStyle, setsetStyle] = useState({});
-
+ 
   const handleItemClick = (e, { name }) => {
-    console.log('name', name);
     setactiveItem(name);
     if (name === 'Buy') {
       setsetStyle({
@@ -47,8 +43,21 @@ function App() {
     }
   };
 
+
+ 
+  
+ useEffect(() => {
+  if(!activeItem){
+    setactiveItem(shortUrl)
+}
+   return () => {
+     
+   }
+ }, [])
+
   return (
     <HouseContextProvider>
+
       <Router>
         <Segment
           textAlign="center"
@@ -56,8 +65,9 @@ function App() {
           vertical
           inverted
         >
-          <div className="divMenu">
-            <Menu widths={5} pointing className="menuParent">
+          <div className="divMenu" ref={contextRef}>
+          <Sticky context={contextRef}>
+            <Menu widths={5} pointing attached='top' className="menuParent">
               <Menu.Item
                 className="menuItem"
                 name="buy"
@@ -81,13 +91,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Sell"
-                active={activeItem === 'Sell'}
+                name="sell"
+                active={activeItem === 'sell'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/sell"
                 style={
-                  activeItem === 'Sell' ? (
+                  activeItem === 'sell' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -102,13 +112,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Morgages"
-                active={activeItem === 'Morgages'}
+                name="morgages"
+                active={activeItem === 'morgages'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/morgages"
                 style={
-                  activeItem === 'Morgages' ? (
+                  activeItem === 'morgages' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -123,13 +133,13 @@ function App() {
               </Menu.Item>
 
               <Menu.Item
-                name="Favorites"
-                active={activeItem === 'Favorites'}
+                name="favorites"
+                active={activeItem === 'favorites'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/favorites"
                 style={
-                  activeItem === 'Favorites' ? (
+                  activeItem === 'favorites' ? (
                     {
                       backgroundColor: 'black',
                       color: 'white',
@@ -143,11 +153,15 @@ function App() {
                 Favorites
               </Menu.Item>
             </Menu>
+            </Sticky>
           </div>
         </Segment>
         <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
-            <Route exact path="/buy" component={Buy} />
+          <Switch attached='bottom'>
+          <Route exact path="/">
+              <Redirect to="/buy" />
+          </Route>
+            <Route  path="/buy" component={Buy} />
             <Route exact path="/sell" component={Sell} />
             <Route exact path="/morgages" component={Morgages} />
             <Route exact path="/favorites" component={Favorites} />

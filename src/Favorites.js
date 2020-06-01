@@ -1,7 +1,5 @@
 import React, {useContext} from 'react';
 import './App.css';
-
-import {FavoriteContext} from './context/HouseContext';
 import {HouseContext} from './context/HouseContext';
 import {Grid, Header} from 'semantic-ui-react';
 import HouseCards from './HouseCards';
@@ -14,7 +12,7 @@ function Favorites (props) {
   return (
     <div className="Popup">
       <Grid columns="equal">
-        {console.log ('afvortie s', state)}
+    
 
         <Grid.Row columns={4}>
           {favList.length
@@ -35,7 +33,7 @@ function Favorites (props) {
                   <Header.Content>
                     There are no favorites in your list, Go back to
                     
-                    <code>Buy</code>
+                    <code> <a href="/buy"> Buy </a></code>
                    
                     and click the heart icon
                   </Header.Content>

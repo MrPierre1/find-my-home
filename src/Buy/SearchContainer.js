@@ -1,25 +1,17 @@
 import React, { useState, useContext } from 'react';
-import './App.css';
+import './../App.css';
 
 import { Container, Input, Responsive, Dropdown } from 'semantic-ui-react';
-import test from './assets/test3.jpg';
-import { HouseContext } from './context/HouseContext';
+import backgroundImage from './../assets/test3.jpg';
+import { HouseContext } from '../context/HouseContext';
 
-function SearchContainer(props) {
-  var testing = test;
+function SearchContainer (props) {
   const searchStyle = {
-    background: `url(${testing})`,
+    background: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     height: '550px',
     padding: '140px',
-  };
 
-  const containerStyle = {
-    backgroundColor: '#333',
-    marginTop: '0px',
-    borderRadius: '15px',
-    padding: '10px 20px',
-    // width: '400px'
   };
 
   const submitStyle = {
@@ -66,7 +58,7 @@ function SearchContainer(props) {
     },
   ];
 
-  const [keywords, setkeywords] = useState([]);
+  let [keywords, setkeywords] = useState([]);
 
   const [price, setprice] = useState('');
   const [bedrooms, setbedrooms] = useState('');
@@ -74,37 +66,35 @@ function SearchContainer(props) {
   const { state, setState } = useContext(HouseContext);
 
   const handleSubmit = (event) => {
-    var data = state;
     event.preventDefault();
-    console.log(
-      'price, ',
-      price,
-      'keywords,',
-      keywords,
-      'bed',
-      bedrooms,
-      'state',
-      typeof keywords
-    );
+    var result = state;
 
-    if (!price) {
-      setprice('');
+    if (bedrooms) {
+    
+      result = result.filter(function(house, i) {
+        return house.bedrooms == bedrooms;
+      });
     }
 
-    if (!bedrooms) {
-      setbedrooms('');
-    }
-    if (!keywords) {
-      setkeywords('');
+    if (price) {
+      result = result.filter(function(house, i) {
+        return house['price'] >= price;
+      });
+ 
     }
 
-    var result = state.filter(function(house, i) {
-      return house['price'] >= price && house.bedrooms >= bedrooms;
-    });
+    if (keywords.length) {
+      keywords = keywords.toLowerCase();
+      result = result.filter(function(house, i) {
+        var findDesc = house['description'].toLowerCase();
+     
+        if (findDesc.includes(keywords))
+        return findDesc.includes(keywords);
+      });
+    }
+
     props.stateChange(result);
 
-    data = result;
-    console.log(result);
   };
 
   return (
@@ -174,4 +164,4 @@ function SearchContainer(props) {
   );
 }
 
-export default SearchContainer;
+export default React.memo(SearchContainer);
